@@ -16,13 +16,14 @@ public class StartScreen extends AppCompatActivity {
     private EditText mUsernameBox;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.start_screen);
 
         mStartButton = (Button) findViewById(R.id.start_button);
-        //mStartButton.setOnClickListener(new View.OnClickListener() {
-            // Move on to the next screen here.
-        //});
+//        mStartButton.setOnClickListener(new View.OnClickListener() {
+//            // Move on to the next screen here.
+//            ;
+//        });
     }
 }
