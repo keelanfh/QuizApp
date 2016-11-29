@@ -20,11 +20,11 @@
         android:layout_centerHorizontal="true" />
 
     <EditText
-        android:id="@+id/username"
+        android:id="@+id/username_box"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:hint="Enter your username here"
-        android:inputType="textCapSentences"
+        android:inputType="textVisiblePassword|textNoSuggestions"
         android:layout_marginTop="58dp"
         android:layout_below="@+id/textView"
         android:layout_alignParentLeft="true"
@@ -34,10 +34,10 @@
         android:text="SUBMIT"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/username"
+        android:layout_below="@+id/username_box"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="24dp"
-        android:id="@+id/button" />
+        android:id="@+id/submit_button" />
 
 
 </RelativeLayout>
