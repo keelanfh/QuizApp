@@ -28,9 +28,9 @@ public class RegistrationScreen extends AppCompatActivity {
                 User currentUser = new User();
                 currentUser.setUsername(mUsernameBox.getText().toString());
 
-                Toast.makeText(RegistrationScreen.this,
-                        currentUser.getUsername(),
-                        Toast.LENGTH_SHORT).show();
+//                Toast.makeText(RegistrationScreen.this,
+//                        currentUser.getUsername(),
+//                        Toast.LENGTH_SHORT).show();
 
                 Intent intent = new Intent(context, StartScreen.class);
                 startActivity(intent);
