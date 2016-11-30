@@ -7,7 +7,6 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.Toast;
 
 public class RegistrationScreen extends AppCompatActivity {
 
@@ -25,7 +24,7 @@ public class RegistrationScreen extends AppCompatActivity {
         mSubmitButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                User currentUser = new User();
+                User currentUser = App.currentUser;
                 currentUser.setUsername(mUsernameBox.getText().toString());
 
 //                Toast.makeText(RegistrationScreen.this,
