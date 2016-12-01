@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 public class RegistrationScreen extends AppCompatActivity {
 
@@ -25,14 +26,20 @@ public class RegistrationScreen extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 User currentUser = App.currentUser;
-                currentUser.setUsername(mUsernameBox.getText().toString());
+                String userInput = mUsernameBox.getText().toString();
 
-//                Toast.makeText(RegistrationScreen.this,
-//                        currentUser.getUsername(),
-//                        Toast.LENGTH_SHORT).show();
+                // Don't let the user set a username of less than 3 characters.
+                if(userInput.length() <= 3){
+                    Toast.makeText(RegistrationScreen.this,
+                            "Please enter a username longer than 3 characters.",
+                            Toast.LENGTH_SHORT).show();
+                }
+                else{
+                    currentUser.setUsername(userInput);
+                    Intent intent = new Intent(context, StartScreen.class);
+                    startActivity(intent);
+                }
 
-                Intent intent = new Intent(context, StartScreen.class);
-                startActivity(intent);
 
             }
         });

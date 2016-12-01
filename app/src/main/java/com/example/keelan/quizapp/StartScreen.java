@@ -1,7 +1,10 @@
 package com.example.keelan.quizapp;
 
+import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
@@ -18,6 +21,7 @@ public class StartScreen extends AppCompatActivity {
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
+        final Context context = this;
         super.onCreate(savedInstanceState);
         setContentView(R.layout.start_screen);
 
@@ -25,9 +29,14 @@ public class StartScreen extends AppCompatActivity {
         mHelloMessage = (TextView) findViewById(R.id.helloMessage);
 
         mHelloMessage.setText("Welcome, " + App.currentUser.getUsername());
-//        mStartButton.setOnClickListener(new View.OnClickListener() {
-//            // Move on to the next screen here.
-//            ;
-//        });
+        mStartButton.setOnClickListener(new View.OnClickListener() {
+            public void onClick (View v){
+                Intent intent = new Intent(context, QuestionScreen.class);
+                startActivity(intent);
+
+            }
+
+            ;
+        });
     }
 }
