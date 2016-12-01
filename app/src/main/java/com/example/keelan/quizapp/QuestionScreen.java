@@ -4,6 +4,7 @@ import android.content.Context;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.widget.Button;
+import android.widget.RadioButton;
 import android.widget.TextView;
 
 /**
@@ -15,6 +16,12 @@ public class QuestionScreen extends AppCompatActivity {
     private Button mSkipButton;
     private Button mCheatButton;
     private Button mAllQButton;
+    private TextView mQuestion;
+    private RadioButton mAnswer1;
+    private RadioButton mAnswer2;
+    private RadioButton mAnswer3;
+    private RadioButton mAnswer4;
+
 
     public void onCreate(Bundle savedInstanceState) {
         final Context context = this;
@@ -24,5 +31,14 @@ public class QuestionScreen extends AppCompatActivity {
         mSkipButton = (Button) findViewById(R.id.skip_button);
         mCheatButton = (Button) findViewById(R.id.cheat_button);
         mAllQButton= (Button) findViewById(R.id.allq_button);
+        mQuestion = (TextView) findViewById(R.id.question);
+        mAnswer1 = (RadioButton) findViewById(R.id.answer1);
+        mAnswer2 = (RadioButton) findViewById(R.id.answer2);
+        mAnswer3 = (RadioButton) findViewById(R.id.answer3);
+        mAnswer4 = (RadioButton) findViewById(R.id.answer4);
+
+        mQuestion.setText(App.question.getQuestion());
+        mAnswer1.setText();
+
     }
 }
