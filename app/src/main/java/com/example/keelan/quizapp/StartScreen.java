@@ -14,7 +14,7 @@ public class StartScreen extends AppCompatActivity {
 
     private Button mStartButton;
     private EditText mUsernameBox;
-    private TextView welcomeMessageOut;
+    private TextView mHelloMessage;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -22,9 +22,9 @@ public class StartScreen extends AppCompatActivity {
         setContentView(R.layout.start_screen);
 
         mStartButton = (Button) findViewById(R.id.start_button);
-        welcomeMessageOut = (TextView) findViewById(R.id.helloMessage);
+        mHelloMessage = (TextView) findViewById(R.id.helloMessage);
 
-        welcomeMessageOut.setText("Welcome, " + App.currentUser.getUsername());
+        mHelloMessage.setText("Welcome, " + App.currentUser.getUsername());
 //        mStartButton.setOnClickListener(new View.OnClickListener() {
 //            // Move on to the next screen here.
 //            ;
