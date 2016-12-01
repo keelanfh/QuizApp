@@ -15,8 +15,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".StartScreen" >
-        </activity>
+        <activity android:name=".StartScreen"></activity>
         <activity android:name=".QuestionScreen"></activity>
     </application>
 
