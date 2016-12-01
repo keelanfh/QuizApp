@@ -37,8 +37,12 @@ public class QuestionScreen extends AppCompatActivity {
         mAnswer3 = (RadioButton) findViewById(R.id.answer3);
         mAnswer4 = (RadioButton) findViewById(R.id.answer4);
 
+        String[] randomAnswers = App.question.randomAnswers();
         mQuestion.setText(App.question.getQuestion());
-        mAnswer1.setText();
+        mAnswer1.setText(randomAnswers[0]);
+        mAnswer2.setText(randomAnswers[1]);
+        mAnswer3.setText(randomAnswers[2]);
+        mAnswer4.setText(randomAnswers[3]);
 
     }
 }

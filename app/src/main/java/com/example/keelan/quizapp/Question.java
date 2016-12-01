@@ -26,34 +26,45 @@ public class Question {
         question = "question";
         answer = "answer";
         incorrectAnswers = new String[3];
-        for (int i=0; i < incorrectAnswers.length; i++){
-            incorrectAnswers[i] = "wrong";
+        for (int i = 0; i < incorrectAnswers.length; i++) {
+            incorrectAnswers[i] = "wrong" + i;
         }
     }
 
-    public Question(String theQuestion, String theAnswer, String[] theIncorrectAnswers){
+    public Question(String theQuestion, String theAnswer, String[] theIncorrectAnswers) {
         question = theQuestion;
         answer = theAnswer;
         incorrectAnswers = theIncorrectAnswers;
 
     }
 
-    public String[] randomAnswers(){
+    public String[] randomAnswers() {
+        // returns an array of correct and incorrect answers, in a random order
         String[] allAnswers = new String[incorrectAnswers.length + 1];
         int randomNumber;
         do {
-            randomNumber = (int) (Math.random() * (incorrectAnswers.length);
-        } while (allAnswers[randomNumber]!=null);
+            randomNumber = (int) (Math.random() * (incorrectAnswers.length + 1));
+        } while (allAnswers[randomNumber] != null);
 
         allAnswers[randomNumber] = answer;
 
-        for (int i=0; i<incorrectAnswers.length; i++){
+        for (int i = 0; i < incorrectAnswers.length; i++) {
             do {
-                randomNumber = (int) (Math.random() * (incorrectAnswers.length);
-            } while (allAnswers[randomNumber]!=null);
+                randomNumber = (int) (Math.random() * (incorrectAnswers.length + 1));
+            } while (allAnswers[randomNumber] != null);
             allAnswers[randomNumber] = incorrectAnswers[i];
         }
 
+        return allAnswers;
+    }
+
+    public String[] answers() {
+        String[] allAnswers = new String[incorrectAnswers.length + 1];
+        for (int i = 0; i < incorrectAnswers.length; i++) {
+            allAnswers[i] = incorrectAnswers[i];
+        }
+        incorrectAnswers[incorrectAnswers.length - 1] = answer;
+        return allAnswers;
 
     }
 }
