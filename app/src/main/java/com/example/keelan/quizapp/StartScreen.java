@@ -16,7 +16,6 @@ import android.widget.TextView;
 public class StartScreen extends AppCompatActivity {
 
     private Button mStartButton;
-    private EditText mUsernameBox;
     private TextView mHelloMessage;
 
     @Override

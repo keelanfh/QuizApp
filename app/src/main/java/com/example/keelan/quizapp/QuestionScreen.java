@@ -1,7 +1,6 @@
 package com.example.keelan.quizapp;
 
 import android.content.Context;
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
@@ -9,10 +8,6 @@ import android.widget.Button;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.TextView;
-import android.widget.Toast;
-
-import static com.example.keelan.quizapp.App.currentUser;
-import static com.example.keelan.quizapp.App.question;
 
 /**
  * Created by keelan on 1/12/16.
@@ -33,7 +28,6 @@ public class QuestionScreen extends AppCompatActivity {
 
 
     public void onCreate(Bundle savedInstanceState) {
-        final Context context = this;
         super.onCreate(savedInstanceState);
         setContentView(R.layout.question_screen);
 
@@ -55,6 +49,8 @@ public class QuestionScreen extends AppCompatActivity {
         mAnswer3.setText(randomAnswers[2]);
         mAnswer4.setText(randomAnswers[3]);
 
+        // TODO add listeners for mSkipButton, mCheatButton, mAllQButton
+
         mSubmitButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -65,7 +61,7 @@ public class QuestionScreen extends AppCompatActivity {
                 RadioButton r = (RadioButton) mRadioGroup.getChildAt(idx);
                 String selectedtext = r.getText().toString();
                 boolean tf = App.question.checkAnswer(selectedtext);
-                if (tf){
+                if (tf) {
                     App.incrementScore();
                     App.moveToNextQuestion();
 
@@ -79,9 +75,9 @@ public class QuestionScreen extends AppCompatActivity {
                     // TODO make sure that the RadioButton is unticked the next time
 
                     // TODO move to right answer screen
-                }
-                else{
+                } else {
                     // TODO move to wrong answer screen
+                    ;
                 }
 
             }
