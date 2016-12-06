@@ -76,6 +76,8 @@ public class QuestionScreen extends AppCompatActivity {
                     mAnswer3.setText(randomAnswers[2]);
                     mAnswer4.setText(randomAnswers[3]);
 
+                    // TODO make sure that the RadioButton is unticked the next time
+
                     // TODO move to right answer screen
                 }
                 else{

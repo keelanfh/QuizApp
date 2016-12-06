@@ -31,24 +31,33 @@ class App {
                     new String[]{"Generally in charge of a lot of things - Mike Finnell", "Author of A Tale of Two Cities - Charles Dickens",
                             "Worst Boy - Adolf Hitler"}),
             new Question("The executive producers, collectively known as ZAZ, were sibling team David and Jerry Zucker and ...", "Jim Abrahams",
-                    new String[]{"Martin Abrams", "Charles Anderson", "John Atkinson"})
+                    new String[]{"Martin Abrams", "Charles Anderson", "John Atkinson"}),
+            new Question("Which of these is not a member of the flight crew?",
+                    "Shirley", new String[]{"Victor", "Clarence", "Roger"}),
+            new Question("Which of these is not a religious group in the airport?",
+                    "Church of the Flying Spaghetti Monster", new String[]{"Buddhism", "Church of Religious Consciousness", "Scientology"}),
+            new Question("Dinner was a choice between steak and fish. What does Captain Over remember that he had?",
+                    "Lasagna", new String[]{"Steak", "Fish", "Nothing - he wasn't hungry"}),
+            new Question("What does Jim never do at home?",
+                    "Vomit", new String[]{"Have a second cup of tea", "Eat breakfast", "Read the newspaper"}),
+            new Question("What is the 'light reading' on offer on flight 209?",
+                    "Famous Jewish Sports Legends", new String[]{"Electric Lighting Weekly", "Famous Christian Music Stars", "an Agatha Christie book"})
     };
-
 
     static int questionNumber = 0;
 
     static int score = 0;
     static Question question = questionList[0];
 
-    static void incrementScore(){
+    static void incrementScore() {
         score++;
     }
 
-    static void moveToNextQuestion(){
+    static void moveToNextQuestion() {
         questionNumber++;
         question = questionList[questionNumber];
     }
 
 
-    }
+}
 
