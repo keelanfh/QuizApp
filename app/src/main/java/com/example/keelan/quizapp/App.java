@@ -56,6 +56,11 @@ class App {
     static void moveToNextQuestion() {
         questionNumber++;
         question = questionList[questionNumber];
+
+        if(questionNumber + 1 == questionList.length){
+            //TODO if it's the last question, go somewhere else
+            ;
+        }
     }
 
 
