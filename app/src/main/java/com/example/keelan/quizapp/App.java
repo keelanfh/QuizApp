@@ -12,7 +12,7 @@ class App {
             new Question("What is it really about between the white zone and the red zone voices?",
                     "Vernon wants her to get an abortion", new String[]{"a", "b", "c"}),
             new Question("What is the name of Kareem Abdul-Jabbar's character?",
-                    "Roger Murdock", new String[]{"Millard Filmore", "b", "c"}),
+                    "Roger Murdock", new String[]{"Millard Filmore", "Kareem Abdul-Jabbar", "Clarence Oveur"}),
             new Question("Does Ted get a smoking or non-smoking ticket?", "Smoking", new String[]{"Non-smoking", "It never says",
                     "He doesn't buy a ticket"}),
             new Question("\"Nervous?\"\n\"Yes\"\n\"First time?\"",
