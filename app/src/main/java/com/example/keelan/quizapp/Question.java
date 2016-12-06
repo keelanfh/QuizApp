@@ -67,4 +67,14 @@ public class Question {
         return allAnswers;
 
     }
+
+    public boolean checkAnswer(String userAnswer) {
+        if (userAnswer == answer){
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
 }
