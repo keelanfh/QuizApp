@@ -9,7 +9,6 @@ import android.widget.Button;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.TextView;
-import android.widget.Toast;
 
 /**
  * Created by keelan on 1/12/16.
@@ -96,5 +95,10 @@ public class QuestionScreen extends AppCompatActivity {
         mAnswer3.setText(randomAnswers[2]);
         mAnswer4.setText(randomAnswers[3]);
 
+    }
+
+    public void seeAllQuestions(View v){
+        Intent intent = new Intent(context, AllQuestionScreen.class);
+        startActivity(intent);
     }
 }
