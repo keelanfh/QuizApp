@@ -1,5 +1,7 @@
 package com.example.keelan.quizapp;
 
+import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
@@ -7,6 +9,7 @@ import android.widget.Button;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.TextView;
+import android.widget.Toast;
 
 /**
  * Created by keelan on 1/12/16.
@@ -24,6 +27,8 @@ public class QuestionScreen extends AppCompatActivity {
     private RadioButton mAnswer2;
     private RadioButton mAnswer3;
     private RadioButton mAnswer4;
+    final Context context = this;
+
 
 
     public void onCreate(Bundle savedInstanceState) {
@@ -41,6 +46,49 @@ public class QuestionScreen extends AppCompatActivity {
         mAnswer3 = (RadioButton) findViewById(R.id.answer3);
         mAnswer4 = (RadioButton) findViewById(R.id.answer4);
 
+        refreshText();
+    }
+
+    public void submit(View v) {
+        int radioButtonID = mRadioGroup.getCheckedRadioButtonId();
+        if (!(radioButtonID == -1)) {
+            App.cheated = false;
+            View radioButton = mRadioGroup.findViewById(radioButtonID);
+            int idx = mRadioGroup.indexOfChild(radioButton);
+            RadioButton r = (RadioButton) mRadioGroup.getChildAt(idx);
+            String selectedtext = r.getText().toString();
+            boolean tf = App.question.checkAnswer(selectedtext);
+
+            if (tf) {
+                App.incrementScore();
+                refreshText();
+
+            } else {
+                App.lastAnswerCorrect = false;
+
+            }
+            Intent intent = new Intent(context, AnswerScreen.class);
+            startActivity(intent);
+        }
+
+    }
+
+    public void cheat(View v){
+        App.lastAnswerCorrect = false;
+        App.cheated = true;
+        App.moveToNextQuestion();
+        Intent intent = new Intent(context, AnswerScreen.class);
+        startActivity(intent);
+    }
+
+    public void skip(View v){
+
+        App.moveToNextQuestion();
+        refreshText();
+    }
+
+    public void refreshText(){
+
         String[] randomAnswers = App.question.randomAnswers();
         mQuestion.setText(App.question.getQuestion());
         mAnswer1.setText(randomAnswers[0]);
@@ -48,40 +96,5 @@ public class QuestionScreen extends AppCompatActivity {
         mAnswer3.setText(randomAnswers[2]);
         mAnswer4.setText(randomAnswers[3]);
 
-        // TODO add listeners for mSkipButton, mCheatButton, mAllQButton
-
-        mSubmitButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-                int radioButtonID = mRadioGroup.getCheckedRadioButtonId();
-                View radioButton = mRadioGroup.findViewById(radioButtonID);
-                int idx = mRadioGroup.indexOfChild(radioButton);
-                RadioButton r = (RadioButton) mRadioGroup.getChildAt(idx);
-                String selectedtext = r.getText().toString();
-                boolean tf = App.question.checkAnswer(selectedtext);
-                if (tf) {
-                    App.incrementScore();
-                    App.moveToNextQuestion();
-
-                    String[] randomAnswers = App.question.randomAnswers();
-                    mQuestion.setText(App.question.getQuestion());
-                    mAnswer1.setText(randomAnswers[0]);
-                    mAnswer2.setText(randomAnswers[1]);
-                    mAnswer3.setText(randomAnswers[2]);
-                    mAnswer4.setText(randomAnswers[3]);
-
-                    // TODO make sure that the RadioButton is unticked the next time
-
-                    // TODO move to right answer screen
-                } else {
-                    // TODO move to wrong answer screen
-                    ;
-                }
-
-            }
-
-
-        });
     }
 }

@@ -77,4 +77,9 @@ public class Question {
             return false;
         }
     }
+
+    public String answerParagraph(){
+        String paragraph = "The right answer is " + answer;
+        return paragraph;
+    }
 }

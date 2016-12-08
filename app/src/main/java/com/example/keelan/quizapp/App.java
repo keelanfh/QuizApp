@@ -45,12 +45,14 @@ class App {
     };
 
     static int questionNumber = 0;
-
+    static boolean lastAnswerCorrect = false;
     static int score = 0;
     static Question question = questionList[0];
+    static boolean cheated = false;
 
     static void incrementScore() {
         score++;
+        lastAnswerCorrect = true;
     }
 
     static void moveToNextQuestion() {
