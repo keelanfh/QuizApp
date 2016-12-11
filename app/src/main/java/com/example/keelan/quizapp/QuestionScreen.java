@@ -51,7 +51,8 @@ public class QuestionScreen extends AppCompatActivity {
     public void submit(View v) {
         int radioButtonID = mRadioGroup.getCheckedRadioButtonId();
         if (!(radioButtonID == -1)) {
-            App.cheated = false;
+            App.setCheated(false);
+
             View radioButton = mRadioGroup.findViewById(radioButtonID);
             int idx = mRadioGroup.indexOfChild(radioButton);
             RadioButton r = (RadioButton) mRadioGroup.getChildAt(idx);
@@ -63,7 +64,7 @@ public class QuestionScreen extends AppCompatActivity {
                 refreshText();
 
             } else {
-                App.lastAnswerCorrect = false;
+                App.setLastAnswerCorrect(false);
 
             }
             Intent intent = new Intent(context, AnswerScreen.class);
@@ -73,8 +74,8 @@ public class QuestionScreen extends AppCompatActivity {
     }
 
     public void cheat(View v){
-        App.lastAnswerCorrect = false;
-        App.cheated = true;
+        App.setLastAnswerCorrect(false);
+        App.setCheated(true);
         App.moveToNextQuestion();
         Intent intent = new Intent(context, AnswerScreen.class);
         startActivity(intent);

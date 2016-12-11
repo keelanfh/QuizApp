@@ -11,6 +11,7 @@ class App {
 
             new Question("What is it really about between the white zone and the red zone voices?",
                     "Vernon wants her to get an abortion", new String[]{"a", "b", "c"}),
+            // TODO change those to something else
             new Question("What is the name of Kareem Abdul-Jabbar's character?",
                     "Roger Murdock", new String[]{"Millard Filmore", "Kareem Abdul-Jabbar", "Clarence Oveur"}),
             new Question("Does Ted get a smoking or non-smoking ticket?", "Smoking", new String[]{"Non-smoking", "It never says",
@@ -20,6 +21,7 @@ class App {
                     "been nervous before", "No"}),
             new Question("\"When can we land?\" \"I can't tell.\"", "You can tell me, I'm a doctor",
                     new String[]{"a", "b", "c"}),
+            // TODO change those to something else
             new Question("What route is the airplane flying?", "Los Angeles to Chicago",
                     new String[]{"Los Angeles to New York", "Austin to Chicago", "Boston to Seattle"}),
             new Question("Who has to clear the runway for the emergency landing?", "Air Israel",
@@ -36,7 +38,7 @@ class App {
                     "Shirley", new String[]{"Victor", "Clarence", "Roger"}),
             new Question("Which of these is not a religious group in the airport?",
                     "Church of the Flying Spaghetti Monster", new String[]{"Buddhism", "Church of Religious Consciousness", "Scientology"}),
-            new Question("Dinner was a choice between steak and fish. What does Captain Over remember that he had?",
+            new Question("Dinner was a choice between steak and fish. What does Dr. Rumack remember that he had?",
                     "Lasagna", new String[]{"Steak", "Fish", "Nothing - he wasn't hungry"}),
             new Question("What does Jim never do at home?",
                     "Vomit", new String[]{"Have a second cup of tea", "Eat breakfast", "Read the newspaper"}),
@@ -44,16 +46,38 @@ class App {
                     "Famous Jewish Sports Legends", new String[]{"Electric Lighting Weekly", "Famous Christian Music Stars", "an Agatha Christie book"})
     };
 
-    static int questionNumber = 0;
-    static boolean lastAnswerCorrect = false;
-    static int score = 0;
-    static Question question = questionList[0];
-    static boolean cheated = false;
+    private static boolean lastAnswerCorrect = false;
+
+    static boolean isLastAnswerCorrect() {
+        return lastAnswerCorrect;
+    }
+
+    static void setLastAnswerCorrect(boolean lastAnswerCorrect) {
+        App.lastAnswerCorrect = lastAnswerCorrect;
+    }
+
+
+    private static int score = 0;
 
     static void incrementScore() {
         score++;
         lastAnswerCorrect = true;
     }
+
+
+    private static boolean cheated = false;
+
+    static boolean isCheated() {
+        return cheated;
+    }
+
+    static void setCheated(boolean cheated) {
+        App.cheated = cheated;
+    }
+
+
+    private static int questionNumber = 0;
+    static Question question = questionList[0];
 
     static void moveToNextQuestion() {
         questionNumber++;

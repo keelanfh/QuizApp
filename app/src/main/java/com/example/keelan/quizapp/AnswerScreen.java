@@ -14,7 +14,6 @@ import android.widget.TextView;
 
 public class AnswerScreen extends AppCompatActivity {
 
-    private Button mNextQuestion;
     private TextView mResultMessage;
     private TextView mAnswerMessage;
     private String resultMessage;
@@ -25,14 +24,13 @@ public class AnswerScreen extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.answer_screen);
 
-        mNextQuestion = (Button) findViewById(R.id.next_button);
         mResultMessage = (TextView) findViewById(R.id.result_message);
         mAnswerMessage = (TextView) findViewById(R.id.answer_message);
 
-        if (App.lastAnswerCorrect) {
+        if (App.isLastAnswerCorrect()) {
             resultMessage = "Correct!";
         }
-        else if (App.cheated) {
+        else if (App.isCheated()) {
             resultMessage = "";
         }
         else{
