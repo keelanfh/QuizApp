@@ -3,7 +3,10 @@ package com.example.keelan.quizapp;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentActivity;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentTransaction;
 import android.view.View;
 import android.widget.Button;
 import android.widget.RadioButton;
@@ -14,7 +17,7 @@ import android.widget.TextView;
  * Created by keelan on 1/12/16.
  */
 
-public class QuestionScreen extends AppCompatActivity {
+public class QuestionScreen extends FragmentActivity {
 
     private Button mSubmitButton;
     private RadioGroup mRadioGroup;
@@ -33,6 +36,13 @@ public class QuestionScreen extends AppCompatActivity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.question_screen);
+
+        FragmentManager fm = getSupportFragmentManager();
+        FragmentTransaction fragmentTransaction = fm.beginTransaction();
+
+        Fragment fragment = new Fragment();
+        fragmentTransaction.add(R.id.fragment_container, fragment);
+        fragmentTransaction.commit();
 
         mRadioGroup = (RadioGroup) findViewById(R.id.answers_group);
         mSubmitButton = (Button) findViewById(R.id.submit_button);
@@ -76,7 +86,6 @@ public class QuestionScreen extends AppCompatActivity {
     public void cheat(View v){
         App.setLastAnswerCorrect(false);
         App.setCheated(true);
-        App.moveToNextQuestion();
         Intent intent = new Intent(context, AnswerScreen.class);
         startActivity(intent);
     }

@@ -20,9 +20,9 @@ public class AllQuestionScreen extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.all_question_screen);
 
-        int[] ids = new int[]{R.id.b1, R.id.b2, R.id.b3};
+        int[] ids = new int[]{R.id.q1, R.id.q2, R.id.q3, R.id.q4, R.id.q5, R.id.q6, R.id.q7, R.id.q8, R.id.q9, R.id.q10, R.id.q11, R.id.q12, R.id.q13, R.id.q14, R.id.q15};
 
-        for(int i = 0; i<=2; i++){
+        for(int i = 0; i<ids.length; i++){
             Button mQuestionText = (Button) findViewById(ids[i]);
             mQuestionText.setText(App.questionList[i].getQuestion());
         }

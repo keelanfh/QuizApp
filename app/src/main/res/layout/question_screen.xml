@@ -10,15 +10,11 @@
                 android:paddingTop="@dimen/activity_vertical_margin"
                 tools:context="com.example.keelan.quizapp.RegistrationScreen">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Sample Question"
-        android:id="@+id/question"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:layout_above="@+id/answers_group"
-        />
+    <FrameLayout
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:id="@+id/fragment_container">
+    </FrameLayout>
 
 
     <Button
@@ -121,6 +117,15 @@
             android:layout_alignLeft="@+id/allq_button"
             android:layout_alignStart="@+id/allq_button"/>
     </RadioGroup>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Sample Question"
+        android:id="@+id/question"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="64dp" />
 
 
 </RelativeLayout>

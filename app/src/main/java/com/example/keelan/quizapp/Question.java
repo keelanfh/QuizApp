@@ -79,7 +79,7 @@ public class Question {
     }
 
     public String answerParagraph(){
-        String paragraph = "The right answer is " + answer;
+        String paragraph = "The right answer is " + this.answer;
         return paragraph;
     }
 }
