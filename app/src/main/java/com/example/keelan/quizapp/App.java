@@ -57,6 +57,10 @@ class App {
     }
 
 
+    static int getScore() {
+        return score;
+    }
+
     private static int score = 0;
 
     static void incrementScore() {
@@ -79,13 +83,18 @@ class App {
     private static int questionNumber = 0;
     static Question question = questionList[0];
 
+    static boolean isEndOfQuiz() {
+        return endOfQuiz;
+    }
+
+    private static boolean endOfQuiz = false;
+
     static void moveToNextQuestion() {
         questionNumber++;
         question = questionList[questionNumber];
 
         if(questionNumber + 1 == questionList.length){
-            //TODO if it's the last question, go somewhere else
-            ;
+            endOfQuiz = true;
         }
     }
 

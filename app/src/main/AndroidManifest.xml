@@ -18,7 +18,8 @@
         <activity android:name=".StartScreen"/>
         <activity android:name=".QuestionScreen"/>
         <activity android:name=".AnswerScreen"/>
-        <activity android:name=".AllQuestionScreen"></activity>
+        <activity android:name=".AllQuestionScreen"/>
+        <activity android:name=".ScoreScreen"/>
     </application>
 
 </manifest>

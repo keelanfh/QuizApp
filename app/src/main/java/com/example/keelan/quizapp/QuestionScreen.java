@@ -91,7 +91,7 @@ public class QuestionScreen extends FragmentActivity {
     }
 
     public void skip(View v){
-
+        // TODO check if at the end of the quiz, if so go to scoreScreen
         App.moveToNextQuestion();
         refreshText();
     }

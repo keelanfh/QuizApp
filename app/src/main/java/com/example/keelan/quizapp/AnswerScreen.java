@@ -43,9 +43,15 @@ public class AnswerScreen extends AppCompatActivity {
     }
 
     public void nextQuestion(View v){
-        App.moveToNextQuestion();
-        Intent intent = new Intent(context, QuestionScreen.class);
-        startActivity(intent);
+        if (App.isEndOfQuiz()){
+            Intent intent = new Intent(context, ScoreScreen.class);
+            startActivity(intent);
+        }
+        else {
+            App.moveToNextQuestion();
+            Intent intent = new Intent(context, QuestionScreen.class);
+            startActivity(intent);
+        }
     }
 
 }
