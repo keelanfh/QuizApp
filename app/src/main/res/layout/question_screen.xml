@@ -10,12 +10,12 @@
                 android:paddingTop="@dimen/activity_vertical_margin"
                 tools:context="com.example.keelan.quizapp.RegistrationScreen">
 
-    <FrameLayout
-        android:layout_width="0dp"
-        android:layout_height="match_parent"
-        android:id="@+id/fragment_container">
-    </FrameLayout>
 
+    <fragment
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/progress_bar"
+        android:name="com.example.keelan.quizapp.ProgressFragment"/>
 
     <Button
         android:onClick="submit"

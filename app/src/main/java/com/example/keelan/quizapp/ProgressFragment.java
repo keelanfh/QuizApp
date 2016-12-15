@@ -12,7 +12,7 @@ import android.widget.TextView;
  */
 
 public class ProgressFragment extends Fragment {
-    private TextView mProgressMessage;
+    static TextView mProgressMessage;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -23,13 +23,13 @@ public class ProgressFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View v = inflater.inflate(R.layout.progress_bar, container, false);
+        View mView = inflater.inflate(R.layout.progress_bar, container, false);
 
-        mProgressMessage = (TextView) v.findViewById(R.id.progress_message);
+        mProgressMessage = (TextView) mView.findViewById(R.id.progress_message);
 
-        mProgressMessage.setText("Progress");
+        mProgressMessage.setText("Question " + (App.getQuestionNumber() + 1)  + " of 15");
 
-        return v;
+        return mView;
     }
 
 }

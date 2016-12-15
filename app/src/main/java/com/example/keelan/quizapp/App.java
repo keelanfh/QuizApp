@@ -5,6 +5,8 @@ package com.example.keelan.quizapp;
  */
 
 class App {
+    static int quizNumber = 1;
+
     static User currentUser = new User();
 
     static Question[] questionList = new Question[]{
@@ -89,6 +91,10 @@ class App {
         }
     }
 
+    public static int getQuestionNumber() {
+        return questionNumber;
+    }
+
     private static int questionNumber = 0;
     static Question question = questionList[0];
 
@@ -106,7 +112,6 @@ class App {
             endOfQuiz = true;
         }
     }
-
 
 }
 

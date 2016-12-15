@@ -17,6 +17,8 @@ import android.widget.TextView;
  * Created by keelan on 1/12/16.
  */
 
+// TODO reset the radioButton if skipped
+
 public class QuestionScreen extends FragmentActivity {
 
     private Button mSubmitButton;
@@ -39,9 +41,6 @@ public class QuestionScreen extends FragmentActivity {
 
         FragmentManager fm = getSupportFragmentManager();
         FragmentTransaction fragmentTransaction = fm.beginTransaction();
-
-        Fragment fragment = new Fragment();
-        fragmentTransaction.add(R.id.fragment_container, fragment);
         fragmentTransaction.commit();
 
         mRadioGroup = (RadioGroup) findViewById(R.id.answers_group);
@@ -91,9 +90,15 @@ public class QuestionScreen extends FragmentActivity {
     }
 
     public void skip(View v){
-        // TODO check if at the end of the quiz, if so go to scoreScreen
-        App.moveToNextQuestion();
-        refreshText();
+        if (App.isEndOfQuiz()){
+            Intent intent = new Intent(context, ScoreScreen.class);
+            startActivity(intent);
+        }
+        else {
+            App.moveToNextQuestion();
+            refreshText();
+            mRadioGroup.clearCheck();
+        }
     }
 
     public void refreshText(){
@@ -104,6 +109,7 @@ public class QuestionScreen extends FragmentActivity {
         mAnswer2.setText(randomAnswers[1]);
         mAnswer3.setText(randomAnswers[2]);
         mAnswer4.setText(randomAnswers[3]);
+        ProgressFragment.mProgressMessage.setText("Question " + (App.getQuestionNumber() + 1)  + " of 15");
 
     }
 
