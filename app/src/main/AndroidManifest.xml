@@ -20,6 +20,7 @@
         <activity android:name=".AnswerScreen"/>
         <activity android:name=".AllQuestionScreen"/>
         <activity android:name=".ScoreScreen"/>
+        <activity android:name=".AllScoreScreen"/>
     </application>
 
 </manifest>

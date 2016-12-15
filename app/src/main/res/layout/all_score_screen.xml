@@ -15,28 +15,36 @@
         android:layout_height="wrap_content"
         android:text="got it right/wrong"
         android:layout_marginTop="102dp"
-        android:id="@+id/score_message"
+        android:id="@+id/usernames"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="got it right/wrong"
+        android:layout_marginTop="102dp"
+        android:id="@+id/quiznumbers"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true" />
 
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="got it right/wrong"
+        android:layout_marginTop="102dp"
+        android:id="@+id/scores"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentRight="true" />
+
     <Button
-        android:onClick="newQuiz"
         android:text="NEW QUIZ"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/skip_button"
         android:layout_centerHorizontal="true"
-        android:layout_above="@+id/see_all_scores"
-        android:layout_marginBottom="50dp"/>
-
-    <Button
-        android:onClick="seeAllScores"
-        android:text="SEE ALL SCORES"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/see_all_scores"
         android:layout_marginBottom="100dp"
         android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"/>
+        android:id="@+id/score_screen_newquiz"
+        android:onClick="scoreScreenNewQuiz"/>
 
 </RelativeLayout>

@@ -1,11 +1,14 @@
 package com.example.keelan.quizapp;
 
+import java.util.ArrayList;
+
 /**
  * Created by keelan on 30/11/16.
  */
 
 class App {
-    static int quizNumber = 1;
+    private static int currentQuizNumber = 1;
+    static ArrayList<Score> scoreList = new ArrayList<Score>();
 
     static User currentUser = new User();
 
@@ -91,7 +94,7 @@ class App {
         }
     }
 
-    public static int getQuestionNumber() {
+    static int getQuestionNumber() {
         return questionNumber;
     }
 
@@ -111,6 +114,14 @@ class App {
         if(questionNumber + 1 == questionList.length){
             endOfQuiz = true;
         }
+    }
+
+    static void moveToNextQuiz(){
+        scoreList.add(new Score(score, currentUser.getUsername(), currentQuizNumber));
+        score = 0;
+        currentQuizNumber++;
+        questionNumber = 0;
+        question = questionList[questionNumber];
     }
 
 }
