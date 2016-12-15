@@ -22,8 +22,13 @@ public class ScoreScreen extends AppCompatActivity {
         setContentView(R.layout.score_screen);
 
         mScoreMessage = (TextView) findViewById(R.id.score_message);
-        mScoreMessage.setText(("You got " + App.getScore() + " questions out of 15 correct"));
+        if (App.getScore() == 1){
+            mScoreMessage.setText(("You got " + App.getScore() + " question out of 15 correct"));
 
+        }
+        else {
+            mScoreMessage.setText(("You got " + App.getScore() + " questions out of 15 correct"));
+        }
 
     }
 

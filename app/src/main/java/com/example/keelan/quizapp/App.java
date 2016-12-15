@@ -80,6 +80,15 @@ class App {
     }
 
 
+    static void setQuestionNumber(int newQuestionNumber) {
+        questionNumber = newQuestionNumber;
+        question = questionList[newQuestionNumber];
+
+        if(questionNumber + 1 == questionList.length){
+            endOfQuiz = true;
+        }
+    }
+
     private static int questionNumber = 0;
     static Question question = questionList[0];
 

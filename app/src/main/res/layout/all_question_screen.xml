@@ -16,7 +16,7 @@
 
     <Button
         android:text="NEXT QUESTION"
-        android:onClick="nextQuestion"
+        android:onClick="thisQuestion"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/q1"
@@ -25,7 +25,7 @@
 
     <Button
         android:text="NEXT QUESTION"
-        android:onClick="nextQuestion"
+        android:onClick="thisQuestion"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/q2"
@@ -34,7 +34,7 @@
 
     <Button
         android:text="NEXT QUESTION"
-        android:onClick="nextQuestion"
+        android:onClick="thisQuestion"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/q3"
@@ -43,7 +43,7 @@
 
     <Button
         android:text="NEXT QUESTION"
-        android:onClick="nextQuestion"
+        android:onClick="thisQuestion"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/q4"
@@ -52,7 +52,7 @@
 
     <Button
         android:text="NEXT QUESTION"
-        android:onClick="nextQuestion"
+        android:onClick="thisQuestion"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/q5"
@@ -61,7 +61,7 @@
 
     <Button
         android:text="NEXT QUESTION"
-        android:onClick="nextQuestion"
+        android:onClick="thisQuestion"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/q6"
@@ -70,7 +70,7 @@
 
     <Button
         android:text="NEXT QUESTION"
-        android:onClick="nextQuestion"
+        android:onClick="thisQuestion"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/q7"
@@ -79,7 +79,7 @@
 
     <Button
         android:text="NEXT QUESTION"
-        android:onClick="nextQuestion"
+        android:onClick="thisQuestion"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/q8"
@@ -88,7 +88,7 @@
 
     <Button
         android:text="NEXT QUESTION"
-        android:onClick="nextQuestion"
+        android:onClick="thisQuestion"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/q9"
@@ -97,7 +97,7 @@
 
     <Button
         android:text="NEXT QUESTION"
-        android:onClick="nextQuestion"
+        android:onClick="thisQuestion"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/q10"
@@ -106,7 +106,7 @@
 
     <Button
         android:text="NEXT QUESTION"
-        android:onClick="nextQuestion"
+        android:onClick="thisQuestion"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/q11"
@@ -115,7 +115,7 @@
 
     <Button
         android:text="NEXT QUESTION"
-        android:onClick="nextQuestion"
+        android:onClick="thisQuestion"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/q12"
@@ -124,7 +124,7 @@
 
     <Button
         android:text="NEXT QUESTION"
-        android:onClick="nextQuestion"
+        android:onClick="thisQuestion"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/q13"
@@ -133,7 +133,7 @@
 
     <Button
         android:text="NEXT QUESTION"
-        android:onClick="nextQuestion"
+        android:onClick="thisQuestion"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/q14"
@@ -142,7 +142,7 @@
 
     <Button
         android:text="NEXT QUESTION"
-        android:onClick="nextQuestion"
+        android:onClick="thisQuestion"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/q15"

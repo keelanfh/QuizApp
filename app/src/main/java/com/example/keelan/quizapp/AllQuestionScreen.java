@@ -29,8 +29,74 @@ public class AllQuestionScreen extends AppCompatActivity {
 
     }
 
-    public void nextQuestion(View v){
-        App.moveToNextQuestion();
+    public void thisQuestion(View v) {
+        switch (v.getId()) {
+            case R.id.q1:
+                goToQuestion(1);
+                break;
+
+            case R.id.q2:
+                goToQuestion(2);
+                break;
+
+            case R.id.q3:
+                goToQuestion(3);
+                break;
+
+            case R.id.q4:
+                goToQuestion(4);
+                break;
+
+            case R.id.q5:
+                goToQuestion(5);
+                break;
+
+            case R.id.q6:
+                goToQuestion(6);
+                break;
+
+            case R.id.q7:
+                goToQuestion(7);
+                break;
+
+            case R.id.q8:
+                goToQuestion(8);
+                break;
+
+            case R.id.q9:
+                goToQuestion(9);
+                break;
+
+            case R.id.q10:
+                goToQuestion(10);
+                break;
+
+            case R.id.q11:
+                goToQuestion(11);
+                break;
+
+            case R.id.q12:
+                goToQuestion(12);
+                break;
+
+            case R.id.q13:
+                goToQuestion(13);
+                break;
+
+            case R.id.q14:
+                goToQuestion(14);
+                break;
+
+            case R.id.q15:
+                goToQuestion(15);
+                break;
+        }
+    }
+
+
+
+    public void goToQuestion(int q){
+        App.setQuestionNumber(q-1);
         Intent intent = new Intent(context, QuestionScreen.class);
         startActivity(intent);
     }
