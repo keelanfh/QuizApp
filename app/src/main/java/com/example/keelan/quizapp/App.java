@@ -49,9 +49,9 @@ class App {
 
     private static Question[] singlePlayerQuestionList = new Question[]{
 
-            new Question("What is it really about between the white zone and the red zone voices?",
-                    "Vernon wants her to get an abortion", new String[]{"a", "b", "c"}),
-            // TODO Azra change those to something else
+            new Question("What is the argument between the voices on the intercom disagreeing about the white zone and red zone really about?",
+                    "Vernon wants her to get an abortion", new String[]{"Someone ate Vernon's lunch yesterday when it was clearly labelled",
+                    "The red zone is a metaphor for Vernon's heart", "There is no deeper meaning to the argument"}),
             new Question("What is the name of Kareem Abdul-Jabbar's character?",
                     "Roger Murdock", new String[]{"Millard Filmore", "Kareem Abdul-Jabbar", "Clarence Oveur"}),
             new Question("Does Ted get a smoking or non-smoking ticket?", "Smoking", new String[]{"Non-smoking", "It never says",
