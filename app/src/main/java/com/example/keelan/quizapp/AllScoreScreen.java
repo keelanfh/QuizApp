@@ -49,8 +49,7 @@ public class AllScoreScreen extends AppCompatActivity {
 
     public void scoreScreenNewQuiz(View v) {
 
-        Intent intent = new Intent(context, RegistrationScreen.class);
-        // TODO change to go to single player/multiplayer screen
+        Intent intent = new Intent(context, MultiplayerChoiceScreen.class);
         startActivity(intent);
     }
 }

@@ -13,45 +13,31 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="50dp"
-        android:id="@+id/score_message0"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:text="What kind of game would you like to play?"
         android:layout_marginTop="102dp"
-        android:id="@+id/score_message1"
+        android:id="@+id/helloMessage"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true" />
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/score_message1"
-        android:id="@+id/score_message2"
-        android:layout_marginTop="50dp"
-        android:layout_centerHorizontal="true" />
-
     <Button
-        android:onClick="newQuiz"
-        android:text="NEW QUIZ"
+        android:text="SINGLE-PLAYER GAME"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/skip_button"
+        android:layout_below="@+id/helloMessage"
         android:layout_centerHorizontal="true"
-        android:layout_above="@+id/see_all_scores"
-        android:layout_marginBottom="50dp"/>
+        android:layout_marginTop="24dp"
+        android:onClick="SinglePlayerClick"
+        android:id="@+id/single_player_button" />
 
     <Button
-        android:onClick="seeAllScores"
-        android:text="SEE ALL SCORES"
+        android:text="MULTI-PLAYER GAME"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/see_all_scores"
-        android:layout_marginBottom="100dp"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"/>
+        android:layout_below="@+id/single_player_button"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="24dp"
+        android:onClick="MultiPlayerClick"
+        android:id="@+id/multi_player_button" />
+
 
 </RelativeLayout>

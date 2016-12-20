@@ -10,41 +10,37 @@ class App {
     private static int currentQuizNumber = 0;
     static ArrayList<Score> scoreList = new ArrayList<>();
 
-    // TODO Keelan make SP/MP choice screen
     // TODO Azra getNextPlayerName
 
     public static boolean isMultiplayer() {
         return multiplayer;
     }
 
-    public static void setMultiplayer(boolean multiplayer) {
-        App.multiplayer = multiplayer;
-    }
-
     static boolean multiplayer = false;
 
     static void startQuiz(boolean multiplayer) {
         App.multiplayer = multiplayer;
+        currentQuizNumber++;
+        endOfQuiz = false;
+        questionNumber = 0;
+
         if (multiplayer) {
             currentUser = new User();
             nextUser = new User();
             currentUser.score = 0;
             nextUser.score = 0;
 
-            currentQuizNumber++;
-            questionNumber = 0;
             questionList = multiPlayerQuestionList;
-            question = questionList[questionNumber];
+
         } else {
             currentUser = new User();
             currentUser.score = 0;
 
-            currentQuizNumber++;
-            questionNumber = 0;
             questionList = singlePlayerQuestionList;
-            question = questionList[questionNumber];
         }
-        endOfQuiz = false;
+        question = questionList[questionNumber];
+
+
     }
 
     static User currentUser;
@@ -65,8 +61,7 @@ class App {
                     "No, I've been nervous lots of times", new String[]{"No, but I haven't flown in a long time", "Yes, I've never " +
                     "been nervous before", "No"}),
             new Question("\"When can we land?\" \"I can't tell.\"", "You can tell me, I'm a doctor",
-                    new String[]{"a", "b", "c"}),
-            // TODO Keelan change those to something else
+                    new String[]{"Can you write it down?", "You can tell me, I'm a federal air marshal.", "You're supposed to be the captain here!"}),
             new Question("What route is the airplane flying?", "Los Angeles to Chicago",
                     new String[]{"Los Angeles to New York", "Austin to Chicago", "Boston to Seattle"}),
             new Question("Who has to clear the runway for the emergency landing?", "Air Israel",
@@ -113,13 +108,6 @@ class App {
 
     static void setLastAnswerCorrect(boolean lastAnswerCorrect) {
         App.lastAnswerCorrect = lastAnswerCorrect;
-    }
-
-
-    static int getScore() {
-        // TODO Keelan update for ScoreScreen
-        // This won't work at the moment, may need to be changed
-        return currentUser.getScore();
     }
 
     static void incrementScore() {
@@ -178,7 +166,9 @@ class App {
 
     static void addScoreToList() {
         scoreList.add(new Score(currentUser.getScore(), currentUser.getUsername(), currentQuizNumber));
-        // TODO Keelan change to add two scores if multiplayer
+        if(multiplayer){
+            scoreList.add(new Score(nextUser.getScore(), nextUser.getUsername(), currentQuizNumber));
+        }
     }
 
 }

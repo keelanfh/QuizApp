@@ -30,18 +30,30 @@ public class ScoreScreen extends AppCompatActivity {
         mScoreMessage1 = (TextView) findViewById(R.id.score_message1);
         mScoreMessage2 = (TextView) findViewById(R.id.score_message2);
 
-
-        //TODO Keelan change these
-
         if (App.isMultiplayer()) {
             if (App.currentUser.getScore() > App.nextUser.getScore()) {
-                App.currentUser.getUsername();
+                mScoreMessage0.setText(("Congratulations, " + App.currentUser.getUsername() + ", you beat"
+                        + App.nextUser.getUsername() + "!"));
             }
+            else if (App.currentUser.getScore() > App.nextUser.getScore()) {
+                mScoreMessage0.setText(("Congratulations, " + App.nextUser.getUsername() + ", you beat"
+                        + App.currentUser.getUsername() + "!"));
+            }
+            else{
+                mScoreMessage0.setText("It's a draw!");
+            }
+
             if (App.currentUser.getScore() == 1) {
                 mScoreMessage1.setText(("You got " + App.currentUser.getScore() + " question out of 15 correct"));
 
             } else {
                 mScoreMessage1.setText(("You got " + App.currentUser.getScore() + " questions out of 15 correct"));
+            }
+
+            if (App.nextUser.getScore() == 1){
+                mScoreMessage2.setText(("You got " + App.nextUser.getScore() + "question out of 15 correct"));
+            } else {
+                mScoreMessage2.setText(("You got " + App.nextUser.getScore() + "questions out of 15 correct"));
             }
         } else {
             if (App.currentUser.getScore() == 1) {
@@ -55,8 +67,7 @@ public class ScoreScreen extends AppCompatActivity {
 
     public void newQuiz(View v){
         App.addScoreToList();
-        Intent intent = new Intent(context, RegistrationScreen.class);
-        //TODO go back to the single/multiplayer choice screen
+        Intent intent = new Intent(context, MultiplayerChoiceScreen.class);
         startActivity(intent);
     }
 
