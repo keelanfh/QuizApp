@@ -24,6 +24,8 @@ public class AnswerScreen extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.answer_screen);
 
+        // TODO Azra add to result message which player is coming next
+
         mResultMessage = (TextView) findViewById(R.id.result_message);
         mAnswerMessage = (TextView) findViewById(R.id.answer_message);
 

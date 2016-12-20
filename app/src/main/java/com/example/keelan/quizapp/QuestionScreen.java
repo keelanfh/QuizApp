@@ -17,8 +17,6 @@ import android.widget.TextView;
  * Created by keelan on 1/12/16.
  */
 
-// TODO reset the radioButton if skipped
-
 public class QuestionScreen extends FragmentActivity {
 
     private Button mSubmitButton;
@@ -110,11 +108,14 @@ public class QuestionScreen extends FragmentActivity {
         mAnswer3.setText(randomAnswers[2]);
         mAnswer4.setText(randomAnswers[3]);
         ProgressFragment.mProgressMessage.setText("Question " + (App.getQuestionNumber() + 1)  + " of 15");
+        // TODO Azra change to 30
+
 
     }
 
-    public void seeAllQuestions(View v){
+        public void seeAllQuestions(View v){
         Intent intent = new Intent(context, AllQuestionScreen.class);
         startActivity(intent);
+            //TODO Azra something different if multiplayer
     }
 }

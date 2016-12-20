@@ -7,16 +7,51 @@ import java.util.ArrayList;
  */
 
 class App {
-    private static int currentQuizNumber = 1;
-    static ArrayList<Score> scoreList = new ArrayList<Score>();
+    private static int currentQuizNumber = 0;
+    static ArrayList<Score> scoreList = new ArrayList<>();
+
+    // TODO Keelan make SP/MP choice screen
+    // TODO Azra getNextPlayerName
+
+    public static boolean isMultiplayer() {
+        return multiplayer;
+    }
+
+    public static void setMultiplayer(boolean multiplayer) {
+        App.multiplayer = multiplayer;
+    }
+
+    static boolean multiplayer = false;
+
+    static void startQuiz(boolean multiplayer) {
+        App.multiplayer = multiplayer;
+        if (multiplayer) {
+            // TODO Keelan make 2x
+        } else {
+            score = 0;
+            currentQuizNumber++;
+            questionNumber = 0;
+            questionList = singlePlayerQuestionList;
+            question = questionList[questionNumber];
+        }
+        endOfQuiz = false;
+    }
+
+    // TODO Azra set current User and next User
 
     static User currentUser = new User();
 
-    static Question[] questionList = new Question[]{
+    static Question[] questionList;
+
+    private static Question[] multiPlayerQuestionList = new Question[30];
+        // TODO Keelan make 2x
+
+
+    private static Question[] singlePlayerQuestionList = new Question[]{
 
             new Question("What is it really about between the white zone and the red zone voices?",
                     "Vernon wants her to get an abortion", new String[]{"a", "b", "c"}),
-            // TODO change those to something else
+            // TODO Azra change those to something else
             new Question("What is the name of Kareem Abdul-Jabbar's character?",
                     "Roger Murdock", new String[]{"Millard Filmore", "Kareem Abdul-Jabbar", "Clarence Oveur"}),
             new Question("Does Ted get a smoking or non-smoking ticket?", "Smoking", new String[]{"Non-smoking", "It never says",
@@ -26,7 +61,7 @@ class App {
                     "been nervous before", "No"}),
             new Question("\"When can we land?\" \"I can't tell.\"", "You can tell me, I'm a doctor",
                     new String[]{"a", "b", "c"}),
-            // TODO change those to something else
+            // TODO Keelan change those to something else
             new Question("What route is the airplane flying?", "Los Angeles to Chicago",
                     new String[]{"Los Angeles to New York", "Austin to Chicago", "Boston to Seattle"}),
             new Question("Who has to clear the runway for the emergency landing?", "Air Israel",
@@ -63,12 +98,14 @@ class App {
 
 
     static int getScore() {
+        // TODO Keelan update for ScoreScreen
         return score;
     }
 
     private static int score = 0;
 
     static void incrementScore() {
+        // TODO Keelan change this
         score++;
         lastAnswerCorrect = true;
     }
@@ -89,7 +126,7 @@ class App {
         questionNumber = newQuestionNumber;
         question = questionList[newQuestionNumber];
 
-        if(questionNumber + 1 == questionList.length){
+        if (questionNumber + 1 == questionList.length) {
             endOfQuiz = true;
         }
     }
@@ -111,17 +148,14 @@ class App {
         questionNumber++;
         question = questionList[questionNumber];
 
-        if(questionNumber + 1 == questionList.length){
+        if (questionNumber + 1 == questionList.length) {
             endOfQuiz = true;
         }
     }
 
-    static void moveToNextQuiz(){
+    static void addScoreToList() {
         scoreList.add(new Score(score, currentUser.getUsername(), currentQuizNumber));
-        score = 0;
-        currentQuizNumber++;
-        questionNumber = 0;
-        question = questionList[questionNumber];
+        // TODO Keelan change to add two scores if multiplayer
     }
 
 }

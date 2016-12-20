@@ -11,6 +11,8 @@ import android.widget.Toast;
 
 public class RegistrationScreen extends AppCompatActivity {
 
+    // TODO Azra make new Registration Screen
+
     private Button mSubmitButton;
     private EditText mUsernameBox;
 

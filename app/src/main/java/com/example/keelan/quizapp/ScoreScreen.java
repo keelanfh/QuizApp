@@ -24,6 +24,8 @@ public class ScoreScreen extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.score_screen);
 
+        //TODO Keelan change these
+
         mScoreMessage = (TextView) findViewById(R.id.score_message);
         if (App.getScore() == 1){
             mScoreMessage.setText(("You got " + App.getScore() + " question out of 15 correct"));
@@ -36,13 +38,14 @@ public class ScoreScreen extends AppCompatActivity {
     }
 
     public void newQuiz(View v){
-        App.moveToNextQuiz();
+        App.addScoreToList();
         Intent intent = new Intent(context, RegistrationScreen.class);
+        //TODO go back to the single/multiplayer choice screen
         startActivity(intent);
     }
 
     public void seeAllScores(View v){
-        App.moveToNextQuiz();
+        App.addScoreToList();
         Collections.sort(App.scoreList, new Comparator<Score>() {
             @Override
             public int compare(Score score1, Score score2)

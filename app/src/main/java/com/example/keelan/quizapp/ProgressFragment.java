@@ -28,6 +28,7 @@ public class ProgressFragment extends Fragment {
         mProgressMessage = (TextView) mView.findViewById(R.id.progress_message);
 
         mProgressMessage.setText("Question " + (App.getQuestionNumber() + 1)  + " of 15");
+        // TODO Azra change to 30
 
         return mView;
     }
