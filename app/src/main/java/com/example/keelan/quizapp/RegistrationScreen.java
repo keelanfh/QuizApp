@@ -28,7 +28,6 @@ public class RegistrationScreen extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 App.startQuiz(false);
-                //User currentUser = App.currentUser;
                 String userInput = mUsernameBox.getText().toString();
 
                 // Don't let the user set a username of less than 3 characters.

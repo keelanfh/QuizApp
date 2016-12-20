@@ -155,9 +155,11 @@ class App {
         question = questionList[questionNumber];
 
         // Flip the users around.
-        User tempUser = currentUser;
-        currentUser = nextUser;
-        nextUser = tempUser;
+        if(multiplayer) {
+            User tempUser = currentUser;
+            currentUser = nextUser;
+            nextUser = tempUser;
+        }
 
         if (questionNumber + 1 == questionList.length) {
             endOfQuiz = true;
