@@ -26,9 +26,19 @@ class App {
     static void startQuiz(boolean multiplayer) {
         App.multiplayer = multiplayer;
         if (multiplayer) {
-            // TODO Keelan make 2x
+            currentUser = new User();
+            nextUser = new User();
+            currentUser.score = 0;
+            nextUser.score = 0;
+
+            currentQuizNumber++;
+            questionNumber = 0;
+            questionList = multiPlayerQuestionList;
+            question = questionList[questionNumber];
         } else {
-            score = 0;
+            currentUser = new User();
+            currentUser.score = 0;
+
             currentQuizNumber++;
             questionNumber = 0;
             questionList = singlePlayerQuestionList;
@@ -37,15 +47,10 @@ class App {
         endOfQuiz = false;
     }
 
-    // TODO Azra set current User and next User
-
-    static User currentUser = new User();
+    static User currentUser;
+    static User nextUser;
 
     static Question[] questionList;
-
-    private static Question[] multiPlayerQuestionList = new Question[30];
-        // TODO Keelan make 2x
-
 
     private static Question[] singlePlayerQuestionList = new Question[]{
 
@@ -86,6 +91,20 @@ class App {
                     "Famous Jewish Sports Legends", new String[]{"Electric Lighting Weekly", "Famous Christian Music Stars", "an Agatha Christie book"})
     };
 
+    private static Question[] multiPlayerQuestionList = multiPlayerQuestionListCreator();
+
+    private static Question[] multiPlayerQuestionListCreator(){
+
+        multiPlayerQuestionList = new Question[30];
+        for(int i=0; i<15; i++){
+            multiPlayerQuestionList[i] = singlePlayerQuestionList[i];
+        }
+        for(int i=15; i<30; i++){
+            multiPlayerQuestionList[i] = singlePlayerQuestionList[i-15];
+        }
+        return multiPlayerQuestionList;
+    }
+
     private static boolean lastAnswerCorrect = false;
 
     static boolean isLastAnswerCorrect() {
@@ -99,14 +118,13 @@ class App {
 
     static int getScore() {
         // TODO Keelan update for ScoreScreen
-        return score;
+        // This won't work at the moment, may need to be changed
+        return currentUser.getScore();
     }
 
-    private static int score = 0;
-
     static void incrementScore() {
-        // TODO Keelan change this
-        score++;
+        // increment the score of the current user.
+        currentUser.score++;
         lastAnswerCorrect = true;
     }
 
@@ -135,8 +153,8 @@ class App {
         return questionNumber;
     }
 
-    private static int questionNumber = 0;
-    static Question question = questionList[0];
+    private static int questionNumber;
+    static Question question;
 
     static boolean isEndOfQuiz() {
         return endOfQuiz;
@@ -148,13 +166,18 @@ class App {
         questionNumber++;
         question = questionList[questionNumber];
 
+        // Flip the users around.
+        User tempUser = currentUser;
+        currentUser = nextUser;
+        nextUser = tempUser;
+
         if (questionNumber + 1 == questionList.length) {
             endOfQuiz = true;
         }
     }
 
     static void addScoreToList() {
-        scoreList.add(new Score(score, currentUser.getUsername(), currentQuizNumber));
+        scoreList.add(new Score(currentUser.getScore(), currentUser.getUsername(), currentQuizNumber));
         // TODO Keelan change to add two scores if multiplayer
     }
 

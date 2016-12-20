@@ -14,9 +14,27 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="got it right/wrong"
-        android:layout_marginTop="102dp"
-        android:id="@+id/score_message"
+        android:layout_marginTop="50dp"
+        android:id="@+id/score_message0"
         android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="got it right/wrong"
+        android:layout_marginTop="102dp"
+        android:id="@+id/score_message1"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="got it right/wrong"
+        android:layout_below="@+id/score_message1"
+        android:id="@+id/score_message2"
+        android:layout_marginTop="50dp"
         android:layout_centerHorizontal="true" />
 
     <Button

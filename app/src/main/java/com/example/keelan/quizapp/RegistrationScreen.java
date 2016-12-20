@@ -27,7 +27,8 @@ public class RegistrationScreen extends AppCompatActivity {
         mSubmitButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                User currentUser = App.currentUser;
+                App.startQuiz(false);
+                //User currentUser = App.currentUser;
                 String userInput = mUsernameBox.getText().toString();
 
                 // Don't let the user set a username of less than 3 characters.
@@ -37,7 +38,7 @@ public class RegistrationScreen extends AppCompatActivity {
                             Toast.LENGTH_SHORT).show();
                 }
                 else{
-                    currentUser.setUsername(userInput);
+                    App.currentUser.setUsername(userInput);
                     Intent intent = new Intent(context, StartScreen.class);
                     startActivity(intent);
                 }

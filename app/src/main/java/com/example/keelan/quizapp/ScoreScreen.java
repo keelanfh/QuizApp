@@ -3,6 +3,7 @@ package com.example.keelan.quizapp;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.speech.tts.TextToSpeech;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.TextView;
@@ -16,25 +17,40 @@ import java.util.Comparator;
 
 public class ScoreScreen extends AppCompatActivity {
 
-    private TextView mScoreMessage;
+    private TextView mScoreMessage0;
+    private TextView mScoreMessage1;
+    private TextView mScoreMessage2;
     final Context context = this;
 
 
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.score_screen);
+        mScoreMessage0 = (TextView) findViewById(R.id.score_message0);
+        mScoreMessage1 = (TextView) findViewById(R.id.score_message1);
+        mScoreMessage2 = (TextView) findViewById(R.id.score_message2);
+
 
         //TODO Keelan change these
 
-        mScoreMessage = (TextView) findViewById(R.id.score_message);
-        if (App.getScore() == 1){
-            mScoreMessage.setText(("You got " + App.getScore() + " question out of 15 correct"));
+        if (App.isMultiplayer()) {
+            if (App.currentUser.getScore() > App.nextUser.getScore()) {
+                App.currentUser.getUsername();
+            }
+            if (App.currentUser.getScore() == 1) {
+                mScoreMessage1.setText(("You got " + App.currentUser.getScore() + " question out of 15 correct"));
 
-        }
-        else {
-            mScoreMessage.setText(("You got " + App.getScore() + " questions out of 15 correct"));
-        }
+            } else {
+                mScoreMessage1.setText(("You got " + App.currentUser.getScore() + " questions out of 15 correct"));
+            }
+        } else {
+            if (App.currentUser.getScore() == 1) {
+                mScoreMessage1.setText(("You got " + App.currentUser.getScore() + " question out of 15 correct"));
 
+            } else {
+                mScoreMessage1.setText(("You got " + App.currentUser.getScore() + " questions out of 15 correct"));
+            }
+        }
     }
 
     public void newQuiz(View v){
