@@ -27,7 +27,12 @@ public class StartScreen extends AppCompatActivity {
         mStartButton = (Button) findViewById(R.id.start_button);
         mHelloMessage = (TextView) findViewById(R.id.helloMessage);
 
-        mHelloMessage.setText("Welcome, " + App.currentUser.getUsername());
+        if (App.isMultiplayer()) {
+            mHelloMessage.setText("Welcome, " + App.currentUser.getUsername() + " and " + App.nextUser.getUsername());
+        }
+        else {
+            mHelloMessage.setText("Welcome, " + App.currentUser.getUsername());
+        }
         mStartButton.setOnClickListener(new View.OnClickListener() {
             public void onClick (View v){
                 Intent intent = new Intent(context, QuestionScreen.class);
@@ -35,7 +40,6 @@ public class StartScreen extends AppCompatActivity {
 
             }
 
-            ;
         });
     }
 }

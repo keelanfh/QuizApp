@@ -11,8 +11,6 @@ import android.widget.Toast;
 
 public class RegistrationScreen extends AppCompatActivity {
 
-    // TODO Azra make new Registration Screen
-
     private Button mSubmitButton;
     private EditText mUsernameBox;
 
@@ -31,9 +29,9 @@ public class RegistrationScreen extends AppCompatActivity {
                 String userInput = mUsernameBox.getText().toString();
 
                 // Don't let the user set a username of less than 3 characters.
-                if(userInput.length() <= 3){
+                if(userInput.length() <= 2){
                     Toast.makeText(RegistrationScreen.this,
-                            "Please enter a username longer than 3 characters.",
+                            "Please enter a username 3 characters or longer.",
                             Toast.LENGTH_SHORT).show();
                 }
                 else{

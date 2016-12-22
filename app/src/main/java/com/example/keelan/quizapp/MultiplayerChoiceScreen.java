@@ -26,9 +26,9 @@ public class MultiplayerChoiceScreen extends AppCompatActivity {
     }
 
     public void MultiPlayerClick(View v) {
+        App.multiplayer = true;
         final Context context = this;
-        // TODO Azra add in to move to the new registration screen here.
-        //Intent intent = new Intent(context, );
-        //startActivity(intent);
+        Intent intent = new Intent(context, MultiplayerRegistrationScreen.class);
+        startActivity(intent);
     }
 }
