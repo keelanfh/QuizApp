@@ -31,7 +31,7 @@ public class MultiplayerRegistrationScreen extends AppCompatActivity {
         mSubmitButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                App.startQuiz(false);
+                App.startQuiz(true);
                 String userInput1 = mUsernameBox1.getText().toString();
                 String userInput2 = mUsernameBox2.getText().toString();
 
@@ -49,7 +49,7 @@ public class MultiplayerRegistrationScreen extends AppCompatActivity {
                 }
                 else{
                     App.currentUser.setUsername(userInput1);
-                    //App.nextUser.setUsername(userInput2);
+                    App.nextUser.setUsername(userInput2);
                     Intent intent = new Intent(context, StartScreen.class);
                     startActivity(intent);
                 }

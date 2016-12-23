@@ -26,7 +26,6 @@ public class MultiplayerChoiceScreen extends AppCompatActivity {
     }
 
     public void MultiPlayerClick(View v) {
-        App.multiplayer = true;
         final Context context = this;
         Intent intent = new Intent(context, MultiplayerRegistrationScreen.class);
         startActivity(intent);

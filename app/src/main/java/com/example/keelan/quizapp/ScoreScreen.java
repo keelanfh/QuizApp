@@ -32,11 +32,11 @@ public class ScoreScreen extends AppCompatActivity {
 
         if (App.isMultiplayer()) {
             if (App.currentUser.getScore() > App.nextUser.getScore()) {
-                mScoreMessage0.setText(("Congratulations, " + App.currentUser.getUsername() + ", you beat"
+                mScoreMessage0.setText(("Congratulations, " + App.currentUser.getUsername() + ", you beat "
                         + App.nextUser.getUsername() + "!"));
             }
             else if (App.currentUser.getScore() > App.nextUser.getScore()) {
-                mScoreMessage0.setText(("Congratulations, " + App.nextUser.getUsername() + ", you beat"
+                mScoreMessage0.setText(("Congratulations, " + App.nextUser.getUsername() + ", you beat "
                         + App.currentUser.getUsername() + "!"));
             }
             else{
