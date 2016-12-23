@@ -35,7 +35,7 @@ public class ScoreScreen extends AppCompatActivity {
                 mScoreMessage0.setText(("Congratulations, " + App.currentUser.getUsername() + ", you beat "
                         + App.nextUser.getUsername() + "!"));
             }
-            else if (App.currentUser.getScore() > App.nextUser.getScore()) {
+            else if (App.currentUser.getScore() < App.nextUser.getScore()) {
                 mScoreMessage0.setText(("Congratulations, " + App.nextUser.getUsername() + ", you beat "
                         + App.currentUser.getUsername() + "!"));
             }
