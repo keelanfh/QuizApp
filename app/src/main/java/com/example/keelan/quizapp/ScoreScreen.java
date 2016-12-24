@@ -51,9 +51,9 @@ public class ScoreScreen extends AppCompatActivity {
             }
 
             if (App.nextUser.getScore() == 1){
-                mScoreMessage2.setText(("You got " + App.nextUser.getScore() + "question out of 15 correct"));
+                mScoreMessage2.setText(("You got " + App.nextUser.getScore() + " question out of 15 correct"));
             } else {
-                mScoreMessage2.setText(("You got " + App.nextUser.getScore() + "questions out of 15 correct"));
+                mScoreMessage2.setText(("You got " + App.nextUser.getScore() + " questions out of 15 correct"));
             }
         } else {
             if (App.currentUser.getScore() == 1) {

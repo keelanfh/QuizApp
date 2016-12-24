@@ -107,7 +107,14 @@ public class QuestionScreen extends FragmentActivity {
         mAnswer2.setText(randomAnswers[1]);
         mAnswer3.setText(randomAnswers[2]);
         mAnswer4.setText(randomAnswers[3]);
-        ProgressFragment.mProgressMessage.setText("Question " + (App.getQuestionNumber() + 1)  + " of 15");
+        if (App.isMultiplayer()){
+            ProgressFragment.mProgressMessage.setText("Question " + (App.getQuestionNumber() + 1) + " of 30");
+            ProgressFragment.mPlayerMessage.setText("Current player: " + App.currentUser.getUsername());
+        }
+        else {
+            ProgressFragment.mProgressMessage.setText("Question " + (App.getQuestionNumber() + 1) + " of 15");
+            ProgressFragment.mPlayerMessage.setText(null);
+        }
         // TODO Azra change to 30
 
 

@@ -13,6 +13,7 @@ import android.widget.TextView;
 
 public class ProgressFragment extends Fragment {
     static TextView mProgressMessage;
+    static TextView mPlayerMessage;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -26,9 +27,17 @@ public class ProgressFragment extends Fragment {
         View mView = inflater.inflate(R.layout.progress_bar, container, false);
 
         mProgressMessage = (TextView) mView.findViewById(R.id.progress_message);
+        mPlayerMessage = (TextView) mView.findViewById(R.id.player_message);
 
-        mProgressMessage.setText("Question " + (App.getQuestionNumber() + 1)  + " of 15");
-        // TODO Azra change to 30
+        if (App.isMultiplayer()){
+            mProgressMessage.setText("Question " + (App.getQuestionNumber() + 1) + " of 30");
+            mPlayerMessage.setText("Current player: " + App.currentUser.getUsername());
+        }
+        else {
+            mProgressMessage.setText("Question " + (App.getQuestionNumber() + 1) + " of 15");
+            mPlayerMessage.setText(null);
+            // TODO Azra change to 30
+        }
 
         return mView;
     }
