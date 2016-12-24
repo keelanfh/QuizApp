@@ -16,7 +16,9 @@ public class AnswerScreen extends AppCompatActivity {
 
     private TextView mResultMessage;
     private TextView mAnswerMessage;
+    private TextView mHandToPlayer;
     private String resultMessage;
+    private String handToPlayerMessage;
     final Context context = this;
 
 
@@ -28,6 +30,7 @@ public class AnswerScreen extends AppCompatActivity {
 
         mResultMessage = (TextView) findViewById(R.id.result_message);
         mAnswerMessage = (TextView) findViewById(R.id.answer_message);
+        mHandToPlayer = (TextView) findViewById(R.id.hand_to_player);
 
         if (App.isLastAnswerCorrect()) {
             resultMessage = "Correct!";
@@ -39,8 +42,16 @@ public class AnswerScreen extends AppCompatActivity {
             resultMessage = "Incorrect!";
         }
 
+        if (App.isMultiplayer()) {
+            handToPlayerMessage = "Hand the phone to " + App.nextUser.getUsername();
+        }
+        else {
+            handToPlayerMessage = "";
+        }
+
         mResultMessage.setText(resultMessage);
         mAnswerMessage.setText(App.question.answerParagraph());
+        mHandToPlayer.setText(handToPlayerMessage);
 
     }
 
