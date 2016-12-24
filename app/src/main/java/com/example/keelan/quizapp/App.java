@@ -45,6 +45,8 @@ class App {
 
     static User currentUser;
     static User nextUser;
+    static String player1Name;
+    static String player2Name;
 
     static Question[] questionList;
 
@@ -72,7 +74,7 @@ class App {
             new Question("Which of these was NOT a line in the end credits?", "All-around cool guy - Jerry Zucker",
                     new String[]{"Generally in charge of a lot of things - Mike Finnell", "Author of A Tale of Two Cities - Charles Dickens",
                             "Worst Boy - Adolf Hitler"}),
-            new Question("The executive producers, collectively known as ZAZ, were sibling team David and Jerry Zucker and ...", "Jim Abrahams",
+            new Question("The executive producers, collectively known as ZAZ, were sibling team David and Jerry Zucker and their partner...", "Jim Abrahams",
                     new String[]{"Martin Abrams", "Charles Anderson", "John Atkinson"}),
             new Question("Which of these is not a member of the flight crew?",
                     "Shirley", new String[]{"Victor", "Clarence", "Roger"}),
@@ -171,6 +173,18 @@ class App {
         if(multiplayer){
             scoreList.add(new Score(nextUser.getScore(), nextUser.getUsername(), currentQuizNumber));
         }
+    }
+
+    static boolean odd = false;
+
+    public static boolean isOdd(int n) {
+        if ((n % 2) == 0) {
+            odd = false;
+        }
+        else {
+            odd = true;
+        }
+        return odd;
     }
 
 }

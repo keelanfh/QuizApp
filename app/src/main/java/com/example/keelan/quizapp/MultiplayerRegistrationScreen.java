@@ -50,6 +50,8 @@ public class MultiplayerRegistrationScreen extends AppCompatActivity {
                 else{
                     App.currentUser.setUsername(userInput1);
                     App.nextUser.setUsername(userInput2);
+                    App.player1Name = userInput1;
+                    App.player2Name = userInput2;
                     Intent intent = new Intent(context, StartScreen.class);
                     startActivity(intent);
                 }

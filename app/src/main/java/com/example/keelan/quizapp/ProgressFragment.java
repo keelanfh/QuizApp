@@ -36,7 +36,6 @@ public class ProgressFragment extends Fragment {
         else {
             mProgressMessage.setText("Question " + (App.getQuestionNumber() + 1) + " of 15");
             mPlayerMessage.setText(null);
-            // TODO Azra change to 30
         }
 
         return mView;

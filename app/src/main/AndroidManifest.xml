@@ -23,6 +23,7 @@
         <activity android:name=".AllScoreScreen"/>
         <activity android:name=".RegistrationScreen"/>
         <activity android:name=".MultiplayerRegistrationScreen"/>
+        <activity android:name=".MultiplayerAllQuestionScreen"/>
     </application>
 
 </manifest>

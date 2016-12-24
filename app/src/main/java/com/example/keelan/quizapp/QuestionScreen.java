@@ -115,14 +115,18 @@ public class QuestionScreen extends FragmentActivity {
             ProgressFragment.mProgressMessage.setText("Question " + (App.getQuestionNumber() + 1) + " of 15");
             ProgressFragment.mPlayerMessage.setText(null);
         }
-        // TODO Azra change to 30
 
 
     }
 
         public void seeAllQuestions(View v){
-        Intent intent = new Intent(context, AllQuestionScreen.class);
-        startActivity(intent);
-            //TODO Azra something different if multiplayer
+            if (App.isMultiplayer()) {
+                Intent intent = new Intent(context, MultiplayerAllQuestionScreen.class);
+                startActivity(intent);
+            }
+            else {
+                Intent intent = new Intent(context, AllQuestionScreen.class);
+                startActivity(intent);
+            }
     }
 }
