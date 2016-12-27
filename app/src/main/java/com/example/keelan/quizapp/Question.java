@@ -12,6 +12,12 @@ public class Question {
     private String answer;
     private String[] incorrectAnswers;
 
+    public boolean isAlreadyAnswered() {
+        return answersGiven > 1;
+    }
+
+    private int answersGiven = 0;
+
     public String getQuestion() {
         return question;
     }
@@ -71,6 +77,7 @@ public class Question {
     }
 
     public boolean checkAnswer(String userAnswer) {
+        answersGiven++;
         if (userAnswer == answer){
             return true;
         }

@@ -114,7 +114,9 @@ class App {
 
     static void incrementScore() {
         // increment the score of the current user.
-        currentUser.score++;
+        if (!(question.isAlreadyAnswered())){
+            currentUser.score++;
+        }
         lastAnswerCorrect = true;
     }
 
@@ -157,14 +159,18 @@ class App {
         question = questionList[questionNumber];
 
         // Flip the users around.
+        flipUsers();
+
+        if (questionNumber + 1 == questionList.length) {
+            endOfQuiz = true;
+        }
+    }
+
+    static void flipUsers(){
         if(multiplayer) {
             User tempUser = currentUser;
             currentUser = nextUser;
             nextUser = tempUser;
-        }
-
-        if (questionNumber + 1 == questionList.length) {
-            endOfQuiz = true;
         }
     }
 

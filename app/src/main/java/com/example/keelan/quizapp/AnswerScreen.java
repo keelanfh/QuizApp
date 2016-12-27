@@ -19,6 +19,7 @@ public class AnswerScreen extends AppCompatActivity {
     private TextView mHandToPlayer;
     private String resultMessage;
     private String handToPlayerMessage;
+    private Button mNextButton;
     final Context context = this;
 
 
@@ -29,22 +30,28 @@ public class AnswerScreen extends AppCompatActivity {
         mResultMessage = (TextView) findViewById(R.id.result_message);
         mAnswerMessage = (TextView) findViewById(R.id.answer_message);
         mHandToPlayer = (TextView) findViewById(R.id.hand_to_player);
+        mNextButton = (Button) findViewById(R.id.next_button);
 
         if (App.isLastAnswerCorrect()) {
             resultMessage = "Correct!";
-        }
-        else if (App.isCheated()) {
+        } else if (App.isCheated()) {
             resultMessage = "";
-        }
-        else{
+        } else {
             resultMessage = "Incorrect!";
         }
 
-        if (App.isMultiplayer()) {
+        if (App.isMultiplayer() && !(App.isEndOfQuiz())) {
             handToPlayerMessage = "Hand the phone to " + App.nextUser.getUsername();
-        }
-        else {
+        } else {
             handToPlayerMessage = "";
+        }
+
+        if (App.isEndOfQuiz()) {
+            if (App.isMultiplayer()) {
+                mNextButton.setText("VIEW SCORES");
+            } else {
+                mNextButton.setText("VIEW SCORE");
+            }
         }
 
         mResultMessage.setText(resultMessage);
@@ -53,12 +60,11 @@ public class AnswerScreen extends AppCompatActivity {
 
     }
 
-    public void nextQuestion(View v){
-        if (App.isEndOfQuiz()){
+    public void nextQuestion(View v) {
+        if (App.isEndOfQuiz()) {
             Intent intent = new Intent(context, ScoreScreen.class);
             startActivity(intent);
-        }
-        else {
+        } else {
             App.moveToNextQuestion();
             Intent intent = new Intent(context, QuestionScreen.class);
             startActivity(intent);

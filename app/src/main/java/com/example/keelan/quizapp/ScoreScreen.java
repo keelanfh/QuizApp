@@ -44,16 +44,16 @@ public class ScoreScreen extends AppCompatActivity {
             }
 
             if (App.currentUser.getScore() == 1) {
-                mScoreMessage1.setText(("You got " + App.currentUser.getScore() + " question out of 15 correct"));
+                mScoreMessage1.setText((App.currentUser.getUsername() + ", you got " + App.currentUser.getScore() + " question out of 15 correct"));
 
             } else {
-                mScoreMessage1.setText(("You got " + App.currentUser.getScore() + " questions out of 15 correct"));
+                mScoreMessage1.setText((App.currentUser.getUsername() + ", you got " + App.currentUser.getScore() + " questions out of 15 correct"));
             }
 
             if (App.nextUser.getScore() == 1){
-                mScoreMessage2.setText(("You got " + App.nextUser.getScore() + " question out of 15 correct"));
+                mScoreMessage2.setText((App.nextUser.getUsername() + ", you got " + App.nextUser.getScore() + " question out of 15 correct"));
             } else {
-                mScoreMessage2.setText(("You got " + App.nextUser.getScore() + " questions out of 15 correct"));
+                mScoreMessage2.setText((App.nextUser.getUsername() + ", you got " + App.nextUser.getScore() + " questions out of 15 correct"));
             }
         } else {
             if (App.currentUser.getScore() == 1) {
