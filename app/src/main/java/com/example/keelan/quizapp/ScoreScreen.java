@@ -3,7 +3,6 @@ package com.example.keelan.quizapp;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
-import android.speech.tts.TextToSpeech;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.TextView;
@@ -17,11 +16,10 @@ import java.util.Comparator;
 
 public class ScoreScreen extends AppCompatActivity {
 
+    final Context context = this;
     private TextView mScoreMessage0;
     private TextView mScoreMessage1;
     private TextView mScoreMessage2;
-    final Context context = this;
-
 
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -34,12 +32,10 @@ public class ScoreScreen extends AppCompatActivity {
             if (App.currentUser.getScore() > App.nextUser.getScore()) {
                 mScoreMessage0.setText(("Congratulations, " + App.currentUser.getUsername() + ", you beat "
                         + App.nextUser.getUsername() + "!"));
-            }
-            else if (App.currentUser.getScore() < App.nextUser.getScore()) {
+            } else if (App.currentUser.getScore() < App.nextUser.getScore()) {
                 mScoreMessage0.setText(("Congratulations, " + App.nextUser.getUsername() + ", you beat "
                         + App.currentUser.getUsername() + "!"));
-            }
-            else{
+            } else {
                 mScoreMessage0.setText("It's a draw!");
             }
 
@@ -50,7 +46,7 @@ public class ScoreScreen extends AppCompatActivity {
                 mScoreMessage1.setText((App.currentUser.getUsername() + ", you got " + App.currentUser.getScore() + " questions out of 15 correct"));
             }
 
-            if (App.nextUser.getScore() == 1){
+            if (App.nextUser.getScore() == 1) {
                 mScoreMessage2.setText((App.nextUser.getUsername() + ", you got " + App.nextUser.getScore() + " question out of 15 correct"));
             } else {
                 mScoreMessage2.setText((App.nextUser.getUsername() + ", you got " + App.nextUser.getScore() + " questions out of 15 correct"));
@@ -65,18 +61,17 @@ public class ScoreScreen extends AppCompatActivity {
         }
     }
 
-    public void newQuiz(View v){
+    public void newQuiz(View v) {
         App.addScoreToList();
         Intent intent = new Intent(context, MultiplayerChoiceScreen.class);
         startActivity(intent);
     }
 
-    public void seeAllScores(View v){
+    public void seeAllScores(View v) {
         App.addScoreToList();
         Collections.sort(App.scoreList, new Comparator<Score>() {
             @Override
-            public int compare(Score score1, Score score2)
-            {
+            public int compare(Score score1, Score score2) {
 
                 return Integer.valueOf(score1.getScore()).compareTo(score2.getScore());
             }
@@ -86,7 +81,6 @@ public class ScoreScreen extends AppCompatActivity {
         startActivity(intent);
 
     }
-
 
 
 }

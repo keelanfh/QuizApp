@@ -2,8 +2,8 @@ package com.example.keelan.quizapp;
 
 import android.content.Context;
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -36,18 +36,17 @@ public class MultiplayerRegistrationScreen extends AppCompatActivity {
                 String userInput2 = mUsernameBox2.getText().toString();
 
                 // Don't let the user set a username of less than 3 characters.
-                if(userInput1.length() <= 2 || userInput2.length() <= 2){
+                if (userInput1.length() <= 2 || userInput2.length() <= 2) {
                     Toast.makeText(MultiplayerRegistrationScreen.this,
                             "Please enter a username 3 characters or longer.",
                             Toast.LENGTH_SHORT).show();
                 }
                 //Don't let both users have the same username.
-                else if(userInput1.equals(userInput2)){
+                else if (userInput1.equals(userInput2)) {
                     Toast.makeText(MultiplayerRegistrationScreen.this,
                             "Please enter 2 different usernames.",
                             Toast.LENGTH_SHORT).show();
-                }
-                else{
+                } else {
                     App.currentUser.setUsername(userInput1);
                     App.nextUser.setUsername(userInput2);
                     App.player1Name = userInput1;

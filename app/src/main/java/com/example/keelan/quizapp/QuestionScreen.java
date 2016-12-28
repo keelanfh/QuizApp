@@ -3,12 +3,10 @@ package com.example.keelan.quizapp;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.view.View;
-import android.widget.Button;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.TextView;
@@ -19,15 +17,13 @@ import android.widget.TextView;
 
 public class QuestionScreen extends FragmentActivity {
 
+    final Context context = this;
     private RadioGroup mRadioGroup;
     private TextView mQuestion;
     private RadioButton mAnswer1;
     private RadioButton mAnswer2;
     private RadioButton mAnswer3;
     private RadioButton mAnswer4;
-    final Context context = this;
-
-
 
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -72,7 +68,7 @@ public class QuestionScreen extends FragmentActivity {
 
     }
 
-    public void cheat(View v){
+    public void cheat(View v) {
         App.setLastAnswerCorrect(false);
         App.setCheated(true);
         App.question.setAnswersGiven(2);
@@ -80,19 +76,18 @@ public class QuestionScreen extends FragmentActivity {
         startActivity(intent);
     }
 
-    public void skip(View v){
-        if (App.isEndOfQuiz()){
+    public void skip(View v) {
+        if (App.isEndOfQuiz()) {
             Intent intent = new Intent(context, ScoreScreen.class);
             startActivity(intent);
-        }
-        else {
+        } else {
             App.moveToNextQuestion();
             refreshText();
             mRadioGroup.clearCheck();
         }
     }
 
-    public void refreshText(){
+    public void refreshText() {
 
         String[] randomAnswers = App.question.randomAnswers();
         mQuestion.setText(App.question.getQuestion());
@@ -100,11 +95,10 @@ public class QuestionScreen extends FragmentActivity {
         mAnswer2.setText(randomAnswers[1]);
         mAnswer3.setText(randomAnswers[2]);
         mAnswer4.setText(randomAnswers[3]);
-        if (App.isMultiplayer()){
+        if (App.isMultiplayer()) {
             ProgressFragment.mProgressMessage.setText("Question " + (App.getQuestionNumber() + 1) + " of 30");
             ProgressFragment.mPlayerMessage.setText("Current player: " + App.currentUser.getUsername());
-        }
-        else {
+        } else {
             ProgressFragment.mProgressMessage.setText("Question " + (App.getQuestionNumber() + 1) + " of 15");
             ProgressFragment.mPlayerMessage.setText(null);
         }
@@ -112,14 +106,13 @@ public class QuestionScreen extends FragmentActivity {
 
     }
 
-        public void seeAllQuestions(View v){
-            if (App.isMultiplayer()) {
-                Intent intent = new Intent(context, MultiplayerAllQuestionScreen.class);
-                startActivity(intent);
-            }
-            else {
-                Intent intent = new Intent(context, AllQuestionScreen.class);
-                startActivity(intent);
-            }
+    public void seeAllQuestions(View v) {
+        if (App.isMultiplayer()) {
+            Intent intent = new Intent(context, MultiplayerAllQuestionScreen.class);
+            startActivity(intent);
+        } else {
+            Intent intent = new Intent(context, AllQuestionScreen.class);
+            startActivity(intent);
+        }
     }
 }

@@ -10,28 +10,7 @@ class Question {
     private String question;
     private String answer;
     private String[] incorrectAnswers;
-
-    boolean isAlreadyAnswered() {
-        return answersGiven > 1;
-    }
-
-    void setAnswersGiven(int answersGiven) {
-        this.answersGiven = answersGiven;
-    }
-
     private int answersGiven = 0;
-
-    public String getQuestion() {
-        return question;
-    }
-
-    public String getAnswer() {
-        return answer;
-    }
-
-    public String[] getIncorrectAnswers() {
-        return incorrectAnswers;
-    }
 
     Question() {
         question = "question";
@@ -47,6 +26,26 @@ class Question {
         answer = theAnswer;
         incorrectAnswers = theIncorrectAnswers;
 
+    }
+
+    boolean isAlreadyAnswered() {
+        return answersGiven > 1;
+    }
+
+    void setAnswersGiven(int answersGiven) {
+        this.answersGiven = answersGiven;
+    }
+
+    public String getQuestion() {
+        return question;
+    }
+
+    public String getAnswer() {
+        return answer;
+    }
+
+    public String[] getIncorrectAnswers() {
+        return incorrectAnswers;
     }
 
     String[] randomAnswers() {
@@ -84,7 +83,7 @@ class Question {
         return userAnswer == answer;
     }
 
-    String answerParagraph(){
+    String answerParagraph() {
         return "The right answer is " + this.answer;
     }
 }

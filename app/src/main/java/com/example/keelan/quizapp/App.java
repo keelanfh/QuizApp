@@ -7,14 +7,23 @@ import java.util.ArrayList;
  */
 
 class App {
-    private static int currentQuizNumber = 0;
     static ArrayList<Score> scoreList = new ArrayList<>();
+    static User currentUser;
+    static User nextUser;
+    static String player1Name;
+    static String player2Name;
+    static Question[] questionList;
+    static Question question;
+    private static int currentQuizNumber = 0;
+    private static boolean multiplayer = false;
+    private static boolean lastAnswerCorrect = false;
+    private static boolean cheated = false;
+    private static int questionNumber;
+    private static boolean endOfQuiz = false;
 
     static boolean isMultiplayer() {
         return multiplayer;
     }
-
-    private static boolean multiplayer = false;
 
     static void startQuiz(boolean multiplayer) {
         App.multiplayer = multiplayer;
@@ -40,13 +49,6 @@ class App {
 
 
     }
-
-    static User currentUser;
-    static User nextUser;
-    static String player1Name;
-    static String player2Name;
-
-    static Question[] questionList;
 
     private static Question[] singlePlayerQuestionListCreator() {
         Question[] singlePlayerQuestionList = new Question[]{
@@ -89,19 +91,17 @@ class App {
         return singlePlayerQuestionList;
     }
 
-    private static Question[] multiPlayerQuestionListCreator(){
+    private static Question[] multiPlayerQuestionListCreator() {
         Question[] singlePlayerQuestionList = singlePlayerQuestionListCreator();
         Question[] multiPlayerQuestionList = new Question[30];
-        for(int i=0; i<15; i++){
+        for (int i = 0; i < 15; i++) {
             multiPlayerQuestionList[i] = singlePlayerQuestionList[i];
         }
-        for(int i=15; i<30; i++){
-            multiPlayerQuestionList[i] = singlePlayerQuestionList[i-15];
+        for (int i = 15; i < 30; i++) {
+            multiPlayerQuestionList[i] = singlePlayerQuestionList[i - 15];
         }
         return multiPlayerQuestionList;
     }
-
-    private static boolean lastAnswerCorrect = false;
 
     static boolean isLastAnswerCorrect() {
         return lastAnswerCorrect;
@@ -113,14 +113,11 @@ class App {
 
     static void incrementScore() {
         // increment the score of the current user.
-        if (!(question.isAlreadyAnswered())){
+        if (!(question.isAlreadyAnswered())) {
             currentUser.score++;
         }
         lastAnswerCorrect = true;
     }
-
-
-    private static boolean cheated = false;
 
     static boolean isCheated() {
         return cheated;
@@ -130,6 +127,9 @@ class App {
         App.cheated = cheated;
     }
 
+    static int getQuestionNumber() {
+        return questionNumber;
+    }
 
     static void setQuestionNumber(int newQuestionNumber) {
         questionNumber = newQuestionNumber;
@@ -140,18 +140,9 @@ class App {
         }
     }
 
-    static int getQuestionNumber() {
-        return questionNumber;
-    }
-
-    private static int questionNumber;
-    static Question question;
-
     static boolean isEndOfQuiz() {
         return endOfQuiz;
     }
-
-    private static boolean endOfQuiz = false;
 
     static void moveToNextQuestion() {
         questionNumber++;
@@ -165,8 +156,8 @@ class App {
         }
     }
 
-    static void flipUsers(){
-        if(multiplayer) {
+    static void flipUsers() {
+        if (multiplayer) {
             User tempUser = currentUser;
             currentUser = nextUser;
             nextUser = tempUser;
@@ -175,7 +166,7 @@ class App {
 
     static void addScoreToList() {
         scoreList.add(new Score(currentUser.getScore(), currentUser.getUsername(), currentQuizNumber));
-        if(multiplayer){
+        if (multiplayer) {
             scoreList.add(new Score(nextUser.getScore(), nextUser.getUsername(), currentQuizNumber));
         }
     }

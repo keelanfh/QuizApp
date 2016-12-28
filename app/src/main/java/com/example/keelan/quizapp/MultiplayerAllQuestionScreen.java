@@ -1,9 +1,9 @@
 package com.example.keelan.quizapp;
 
-import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 
@@ -168,16 +168,14 @@ public class MultiplayerAllQuestionScreen extends AppCompatActivity {
         if (App.isOdd(q - 1)) {
             // If it's an odd question, should be player 2's name.
 
-            if (!(App.currentUser.getUsername().equals(App.player2Name)))
-            {
+            if (!(App.currentUser.getUsername().equals(App.player2Name))) {
                 App.flipUsers();
             }
 
 
             // If it's an even question, should be player 1's name.
         } else {
-            if (!(App.currentUser.getUsername().equals(App.player1Name)))
-            {
+            if (!(App.currentUser.getUsername().equals(App.player1Name))) {
                 App.flipUsers();
             }
         }

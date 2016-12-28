@@ -6,7 +6,6 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
-import android.widget.EditText;
 import android.widget.TextView;
 
 /**
@@ -29,12 +28,11 @@ public class StartScreen extends AppCompatActivity {
 
         if (App.isMultiplayer()) {
             mHelloMessage.setText("Welcome, " + App.currentUser.getUsername() + " and " + App.nextUser.getUsername());
-        }
-        else {
+        } else {
             mHelloMessage.setText("Welcome, " + App.currentUser.getUsername());
         }
         mStartButton.setOnClickListener(new View.OnClickListener() {
-            public void onClick (View v){
+            public void onClick(View v) {
                 Intent intent = new Intent(context, QuestionScreen.class);
                 startActivity(intent);
 

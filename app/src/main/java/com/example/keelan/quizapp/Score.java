@@ -5,6 +5,10 @@ package com.example.keelan.quizapp;
  */
 
 class Score {
+    private int score;
+    private String username;
+    private int quizNumber;
+
     Score(int score, String username, int quizNumber) {
         this.score = score;
         this.username = username;
@@ -34,9 +38,5 @@ class Score {
     public void setQuizNumber(int quizNumber) {
         this.quizNumber = quizNumber;
     }
-
-    private int score;
-    private String username;
-    private int quizNumber;
 
 }

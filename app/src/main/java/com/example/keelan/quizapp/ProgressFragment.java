@@ -29,11 +29,10 @@ public class ProgressFragment extends Fragment {
         mProgressMessage = (TextView) mView.findViewById(R.id.progress_message);
         mPlayerMessage = (TextView) mView.findViewById(R.id.player_message);
 
-        if (App.isMultiplayer()){
+        if (App.isMultiplayer()) {
             mProgressMessage.setText("Question " + (App.getQuestionNumber() + 1) + " of 30");
             mPlayerMessage.setText("Current player: " + App.currentUser.getUsername());
-        }
-        else {
+        } else {
             mProgressMessage.setText("Question " + (App.getQuestionNumber() + 1) + " of 15");
             mPlayerMessage.setText(null);
         }

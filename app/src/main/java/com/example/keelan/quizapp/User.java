@@ -6,13 +6,12 @@ package com.example.keelan.quizapp;
 
 class User {
 
+    int score;
     private String username;
 
     int getScore() {
         return score;
     }
-
-    int score;
 
     String getUsername() {
         return username;

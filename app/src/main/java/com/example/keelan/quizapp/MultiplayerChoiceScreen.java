@@ -18,7 +18,7 @@ public class MultiplayerChoiceScreen extends AppCompatActivity {
         setContentView(R.layout.multiplayer_choice_screen);
     }
 
-    public void SinglePlayerClick(View v){
+    public void SinglePlayerClick(View v) {
         final Context context = this;
         Intent intent = new Intent(context, RegistrationScreen.class);
         startActivity(intent);

@@ -14,14 +14,14 @@ import android.widget.TextView;
 
 public class AnswerScreen extends AppCompatActivity {
 
+    final Context context = this;
     private TextView mResultMessage;
     private TextView mAnswerMessage;
     private TextView mHandToPlayer;
+    private TextView mCannotScore;
     private String resultMessage;
     private String handToPlayerMessage;
     private Button mNextButton;
-    final Context context = this;
-
 
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -31,6 +31,7 @@ public class AnswerScreen extends AppCompatActivity {
         mAnswerMessage = (TextView) findViewById(R.id.answer_message);
         mHandToPlayer = (TextView) findViewById(R.id.hand_to_player);
         mNextButton = (Button) findViewById(R.id.next_button);
+        mCannotScore = (TextView) findViewById(R.id.cannot_score);
 
         if (App.isLastAnswerCorrect()) {
             resultMessage = "Correct!";
@@ -46,7 +47,9 @@ public class AnswerScreen extends AppCompatActivity {
             handToPlayerMessage = "";
         }
 
-        // TODO add something to tell the user that we can't give them a score because they've cheated
+        if (App.question.isAlreadyAnswered() && !(App.isCheated())) {
+            mCannotScore.setText("You cannot score a point for this question as you have seen the answer before!");
+        }
 
         if (App.isEndOfQuiz()) {
             if (App.isMultiplayer()) {

@@ -7,19 +7,16 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.TextView;
 
-import org.w3c.dom.Text;
-
 /**
  * Created by keelan on 8/12/16.
  */
 
 public class AllScoreScreen extends AppCompatActivity {
 
+    final Context context = this;
     private TextView mUsernames;
     private TextView mQuizNumbers;
     private TextView mScores;
-    final Context context = this;
-
 
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -32,7 +29,7 @@ public class AllScoreScreen extends AppCompatActivity {
         String usernames = "User\n\n";
         String quiznumbers = "Quiz number\n\n";
         String scores = "Score\n\n";
-        for (Score score : App.scoreList){
+        for (Score score : App.scoreList) {
             usernames += score.getUsername();
             usernames += "\n";
             quiznumbers += score.getQuizNumber();
