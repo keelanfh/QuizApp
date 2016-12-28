@@ -30,13 +30,13 @@ class App {
             currentUser.score = 0;
             nextUser.score = 0;
 
-            questionList = multiPlayerQuestionList;
+            questionList = multiPlayerQuestionListCreator();
 
         } else {
             currentUser = new User();
             currentUser.score = 0;
 
-            questionList = singlePlayerQuestionList;
+            questionList = singlePlayerQuestionListCreator();
         }
         question = questionList[questionNumber];
 
@@ -50,49 +50,50 @@ class App {
 
     static Question[] questionList;
 
-    private static Question[] singlePlayerQuestionList = new Question[]{
+    private static Question[] singlePlayerQuestionListCreator() {
+        Question[] singlePlayerQuestionList = new Question[]{
 
-            new Question("What is the argument between the voices on the intercom disagreeing about the white zone and red zone really about?",
-                    "Vernon wants her to get an abortion", new String[]{"Someone ate Vernon's lunch yesterday when it was clearly labelled",
-                    "The red zone is a metaphor for Vernon's heart", "There is no deeper meaning to the argument"}),
-            new Question("What is the name of Kareem Abdul-Jabbar's character?",
-                    "Roger Murdock", new String[]{"Millard Filmore", "Kareem Abdul-Jabbar", "Clarence Oveur"}),
-            new Question("Does Ted get a smoking or non-smoking ticket?", "Smoking", new String[]{"Non-smoking", "It never says",
-                    "He doesn't buy a ticket"}),
-            new Question("\"Nervous?\"\n\"Yes\"\n\"First time?\"",
-                    "No, I've been nervous lots of times", new String[]{"No, but I haven't flown in a long time", "Yes, I've never " +
-                    "been nervous before", "No"}),
-            new Question("\"When can we land?\" \"I can't tell.\"", "You can tell me, I'm a doctor",
-                    new String[]{"Can you write it down?", "You can tell me, I'm a federal air marshal.", "You're supposed to be the captain here!"}),
-            new Question("What route is the airplane flying?", "Los Angeles to Chicago",
-                    new String[]{"Los Angeles to New York", "Austin to Chicago", "Boston to Seattle"}),
-            new Question("Who has to clear the runway for the emergency landing?", "Air Israel",
-                    new String[]{"Alaska Airlines", "Trans American", "Virgin"}),
-            new Question("Which things does Steve McCroskey say it was the wrong week to quit?", "Smoking, drinking, amphetamines, sniffing glue",
-                    new String[]{"Chocolate, smoking, drinking, cocaine", "Chewing gum, cigarettes, whiskey, crystal meth",
-                            "Calligraphy, vodka, morphine, jelly beans"}),
-            new Question("Which of these was NOT a line in the end credits?", "All-around cool guy - Jerry Zucker",
-                    new String[]{"Generally in charge of a lot of things - Mike Finnell", "Author of A Tale of Two Cities - Charles Dickens",
-                            "Worst Boy - Adolf Hitler"}),
-            new Question("The executive producers, collectively known as ZAZ, were sibling team David and Jerry Zucker and their partner...", "Jim Abrahams",
-                    new String[]{"Martin Abrams", "Charles Anderson", "John Atkinson"}),
-            new Question("Which of these is not a member of the flight crew?",
-                    "Shirley", new String[]{"Victor", "Clarence", "Roger"}),
-            new Question("Which of these is not a religious group in the airport?",
-                    "Church of the Flying Spaghetti Monster", new String[]{"Buddhism", "Church of Religious Consciousness", "Scientology"}),
-            new Question("Dinner was a choice between steak and fish. What does Dr. Rumack remember that he had?",
-                    "Lasagna", new String[]{"Steak", "Fish", "Nothing - he wasn't hungry"}),
-            new Question("What does Jim never do at home?",
-                    "Vomit", new String[]{"Have a second cup of tea", "Eat breakfast", "Read the newspaper"}),
-            new Question("What is the 'light reading' on offer on flight 209?",
-                    "Famous Jewish Sports Legends", new String[]{"Electric Lighting Weekly", "Famous Christian Music Stars", "an Agatha Christie book"})
-    };
-
-    private static Question[] multiPlayerQuestionList = multiPlayerQuestionListCreator();
+                new Question("What is the argument between the voices on the intercom disagreeing about the white zone and red zone really about?",
+                        "Vernon wants her to get an abortion", new String[]{"Someone ate Vernon's lunch yesterday when it was clearly labelled",
+                        "The red zone is a metaphor for Vernon's heart", "There is no deeper meaning to the argument"}),
+                new Question("What is the name of Kareem Abdul-Jabbar's character?",
+                        "Roger Murdock", new String[]{"Millard Filmore", "Kareem Abdul-Jabbar", "Clarence Oveur"}),
+                new Question("Does Ted get a smoking or non-smoking ticket?", "Smoking", new String[]{"Non-smoking", "It never says",
+                        "He doesn't buy a ticket"}),
+                new Question("\"Nervous?\"\n\"Yes\"\n\"First time?\"",
+                        "No, I've been nervous lots of times", new String[]{"No, but I haven't flown in a long time", "Yes, I've never " +
+                        "been nervous before", "No"}),
+                new Question("\"When can we land?\" \"I can't tell.\"", "You can tell me, I'm a doctor",
+                        new String[]{"Can you write it down?", "You can tell me, I'm a federal air marshal.", "You're supposed to be the captain here!"}),
+                new Question("What route is the airplane flying?", "Los Angeles to Chicago",
+                        new String[]{"Los Angeles to New York", "Austin to Chicago", "Boston to Seattle"}),
+                new Question("Who has to clear the runway for the emergency landing?", "Air Israel",
+                        new String[]{"Alaska Airlines", "Trans American", "Virgin"}),
+                new Question("Which things does Steve McCroskey say it was the wrong week to quit?", "Smoking, drinking, amphetamines, sniffing glue",
+                        new String[]{"Chocolate, smoking, drinking, cocaine", "Chewing gum, cigarettes, whiskey, crystal meth",
+                                "Calligraphy, vodka, morphine, jelly beans"}),
+                new Question("Which of these was NOT a line in the end credits?", "All-around cool guy - Jerry Zucker",
+                        new String[]{"Generally in charge of a lot of things - Mike Finnell", "Author of A Tale of Two Cities - Charles Dickens",
+                                "Worst Boy - Adolf Hitler"}),
+                new Question("The executive producers, collectively known as ZAZ, were sibling team David and Jerry Zucker and their partner...", "Jim Abrahams",
+                        new String[]{"Martin Abrams", "Charles Anderson", "John Atkinson"}),
+                new Question("Which of these is not a member of the flight crew?",
+                        "Shirley", new String[]{"Victor", "Clarence", "Roger"}),
+                new Question("Which of these is not a religious group in the airport?",
+                        "Church of the Flying Spaghetti Monster", new String[]{"Buddhism", "Church of Religious Consciousness", "Scientology"}),
+                new Question("Dinner was a choice between steak and fish. What does Dr. Rumack remember that he had?",
+                        "Lasagna", new String[]{"Steak", "Fish", "Nothing - he wasn't hungry"}),
+                new Question("What does Jim never do at home?",
+                        "Vomit", new String[]{"Have a second cup of tea", "Eat breakfast", "Read the newspaper"}),
+                new Question("What is the 'light reading' on offer on flight 209?",
+                        "Famous Jewish Sports Legends", new String[]{"Electric Lighting Weekly", "Famous Christian Music Stars", "an Agatha Christie book"})
+        };
+        return singlePlayerQuestionList;
+    }
 
     private static Question[] multiPlayerQuestionListCreator(){
-
-        multiPlayerQuestionList = new Question[30];
+        Question[] singlePlayerQuestionList = singlePlayerQuestionListCreator();
+        Question[] multiPlayerQuestionList = new Question[30];
         for(int i=0; i<15; i++){
             multiPlayerQuestionList[i] = singlePlayerQuestionList[i];
         }

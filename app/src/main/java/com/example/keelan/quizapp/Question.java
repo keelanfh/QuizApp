@@ -16,6 +16,10 @@ public class Question {
         return answersGiven > 1;
     }
 
+    public void setAnswersGiven(int answersGiven) {
+        this.answersGiven = answersGiven;
+    }
+
     private int answersGiven = 0;
 
     public String getQuestion() {

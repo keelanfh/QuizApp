@@ -83,6 +83,7 @@ public class QuestionScreen extends FragmentActivity {
     public void cheat(View v){
         App.setLastAnswerCorrect(false);
         App.setCheated(true);
+        App.question.setAnswersGiven(2);
         Intent intent = new Intent(context, AnswerScreen.class);
         startActivity(intent);
     }
