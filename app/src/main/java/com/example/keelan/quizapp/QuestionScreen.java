@@ -19,11 +19,7 @@ import android.widget.TextView;
 
 public class QuestionScreen extends FragmentActivity {
 
-    private Button mSubmitButton;
     private RadioGroup mRadioGroup;
-    private Button mSkipButton;
-    private Button mCheatButton;
-    private Button mAllQButton;
     private TextView mQuestion;
     private RadioButton mAnswer1;
     private RadioButton mAnswer2;
@@ -42,10 +38,6 @@ public class QuestionScreen extends FragmentActivity {
         fragmentTransaction.commit();
 
         mRadioGroup = (RadioGroup) findViewById(R.id.answers_group);
-        mSubmitButton = (Button) findViewById(R.id.submit_button);
-        mSkipButton = (Button) findViewById(R.id.skip_button);
-        mCheatButton = (Button) findViewById(R.id.cheat_button);
-        mAllQButton = (Button) findViewById(R.id.allq_button);
         mQuestion = (TextView) findViewById(R.id.question);
         mAnswer1 = (RadioButton) findViewById(R.id.answer1);
         mAnswer2 = (RadioButton) findViewById(R.id.answer2);

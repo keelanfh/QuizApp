@@ -46,6 +46,8 @@ public class AnswerScreen extends AppCompatActivity {
             handToPlayerMessage = "";
         }
 
+        // TODO add something to tell the user that we can't give them a score because they've cheated
+
         if (App.isEndOfQuiz()) {
             if (App.isMultiplayer()) {
                 mNextButton.setText("VIEW SCORES");

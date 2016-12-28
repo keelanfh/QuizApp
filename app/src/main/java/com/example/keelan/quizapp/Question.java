@@ -5,18 +5,17 @@ package com.example.keelan.quizapp;
  */
 
 
-
-public class Question {
+class Question {
 
     private String question;
     private String answer;
     private String[] incorrectAnswers;
 
-    public boolean isAlreadyAnswered() {
+    boolean isAlreadyAnswered() {
         return answersGiven > 1;
     }
 
-    public void setAnswersGiven(int answersGiven) {
+    void setAnswersGiven(int answersGiven) {
         this.answersGiven = answersGiven;
     }
 
@@ -34,7 +33,7 @@ public class Question {
         return incorrectAnswers;
     }
 
-    public Question() {
+    Question() {
         question = "question";
         answer = "answer";
         incorrectAnswers = new String[3];
@@ -43,14 +42,14 @@ public class Question {
         }
     }
 
-    public Question(String theQuestion, String theAnswer, String[] theIncorrectAnswers) {
+    Question(String theQuestion, String theAnswer, String[] theIncorrectAnswers) {
         question = theQuestion;
         answer = theAnswer;
         incorrectAnswers = theIncorrectAnswers;
 
     }
 
-    public String[] randomAnswers() {
+    String[] randomAnswers() {
         // returns an array of correct and incorrect answers, in a random order
         String[] allAnswers = new String[incorrectAnswers.length + 1];
         int randomNumber;
@@ -60,11 +59,11 @@ public class Question {
 
         allAnswers[randomNumber] = answer;
 
-        for (int i = 0; i < incorrectAnswers.length; i++) {
+        for (String incorrectAnswer : incorrectAnswers) {
             do {
                 randomNumber = (int) (Math.random() * (incorrectAnswers.length + 1));
             } while (allAnswers[randomNumber] != null);
-            allAnswers[randomNumber] = incorrectAnswers[i];
+            allAnswers[randomNumber] = incorrectAnswer;
         }
 
         return allAnswers;
@@ -80,19 +79,12 @@ public class Question {
 
     }
 
-    public boolean checkAnswer(String userAnswer) {
+    boolean checkAnswer(String userAnswer) {
         answersGiven++;
-        if (userAnswer == answer){
-            return true;
-        }
-        else
-        {
-            return false;
-        }
+        return userAnswer == answer;
     }
 
-    public String answerParagraph(){
-        String paragraph = "The right answer is " + this.answer;
-        return paragraph;
+    String answerParagraph(){
+        return "The right answer is " + this.answer;
     }
 }
