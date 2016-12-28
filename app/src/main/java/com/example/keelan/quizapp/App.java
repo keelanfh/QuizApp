@@ -10,13 +10,11 @@ class App {
     private static int currentQuizNumber = 0;
     static ArrayList<Score> scoreList = new ArrayList<>();
 
-    // TODO Azra getNextPlayerName
-
-    public static boolean isMultiplayer() {
+    static boolean isMultiplayer() {
         return multiplayer;
     }
 
-    static boolean multiplayer = false;
+    private static boolean multiplayer = false;
 
     static void startQuiz(boolean multiplayer) {
         App.multiplayer = multiplayer;
@@ -182,16 +180,8 @@ class App {
         }
     }
 
-    static boolean odd = false;
-
-    public static boolean isOdd(int n) {
-        if ((n % 2) == 0) {
-            odd = false;
-        }
-        else {
-            odd = true;
-        }
-        return odd;
+    static boolean isOdd(int n) {
+        return (n % 2) != 0;
     }
 
 }
