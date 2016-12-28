@@ -8,11 +8,11 @@ class User {
 
     private String username;
 
-    public int getScore() {
+    int getScore() {
         return score;
     }
 
-    public int score;
+    int score;
 
     String getUsername() {
         return username;

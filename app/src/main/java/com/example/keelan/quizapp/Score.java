@@ -4,14 +4,14 @@ package com.example.keelan.quizapp;
  * Created by keelan on 15/12/16.
  */
 
-public class Score {
-    public Score(int score, String username, int quizNumber) {
+class Score {
+    Score(int score, String username, int quizNumber) {
         this.score = score;
         this.username = username;
         this.quizNumber = quizNumber;
     }
 
-    public int getScore() {
+    int getScore() {
         return score;
     }
 
@@ -27,7 +27,7 @@ public class Score {
         this.username = username;
     }
 
-    public int getQuizNumber() {
+    int getQuizNumber() {
         return quizNumber;
     }
 

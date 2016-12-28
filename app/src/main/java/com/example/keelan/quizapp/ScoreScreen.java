@@ -78,7 +78,7 @@ public class ScoreScreen extends AppCompatActivity {
             public int compare(Score score1, Score score2)
             {
 
-                return  Integer.valueOf(score1.getScore()).compareTo(Integer.valueOf(score2.getScore()));
+                return Integer.valueOf(score1.getScore()).compareTo(score2.getScore());
             }
         });
         Collections.reverse(App.scoreList);

@@ -14,7 +14,6 @@ public class MultiplayerChoiceScreen extends AppCompatActivity {
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
-        final Context context = this;
         super.onCreate(savedInstanceState);
         setContentView(R.layout.multiplayer_choice_screen);
     }
