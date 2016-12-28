@@ -10,8 +10,6 @@ class App {
     private static int currentQuizNumber = 0;
     static ArrayList<Score> scoreList = new ArrayList<>();
 
-    // TODO Azra getNextPlayerName
-
     public static boolean isMultiplayer() {
         return multiplayer;
     }
