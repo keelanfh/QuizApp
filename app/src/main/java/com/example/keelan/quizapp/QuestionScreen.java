@@ -57,7 +57,6 @@ public class QuestionScreen extends FragmentActivity {
             if (tf) {
                 App.incrementScore();
                 refreshText();
-
             } else {
                 App.setLastAnswerCorrect(false);
 
@@ -77,6 +76,8 @@ public class QuestionScreen extends FragmentActivity {
     }
 
     public void skip(View v) {
+        App.setLastAnswerCorrect(false);
+        App.question.setAnswersGiven(2);
         if (App.isEndOfQuiz()) {
             Intent intent = new Intent(context, ScoreScreen.class);
             startActivity(intent);
