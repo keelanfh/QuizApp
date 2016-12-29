@@ -23,7 +23,7 @@ class Score {
         this.score = score;
     }
 
-    public String getUsername() {
+    String getUsername() {
         return username;
     }
 
