@@ -11,6 +11,8 @@ class Question {
     private String answer;
     private String[] incorrectAnswers;
     private int answersGiven = 0;
+    private int answersSkipped = 0;
+    private boolean skipped = false;
 
     Question() {
         question = "question";
@@ -32,8 +34,16 @@ class Question {
         return answersGiven > 1;
     }
 
+    boolean isAlreadySkipped() {
+        return answersSkipped > 1;
+    }
+
     void setAnswersGiven(int answersGiven) {
         this.answersGiven = answersGiven;
+    }
+
+    void setAnswersSkipped(int answersSkipped) {
+        this.answersSkipped = answersSkipped;
     }
 
     public String getQuestion() {
@@ -85,5 +95,13 @@ class Question {
 
     String answerParagraph() {
         return "The right answer is " + this.answer;
+    }
+
+    static void setSkipped (boolean skipped) {
+        App.question.skipped = skipped;
+    }
+
+    boolean isSkipped() {
+        return App.question.skipped;
     }
 }

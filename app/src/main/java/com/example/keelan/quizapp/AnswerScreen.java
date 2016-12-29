@@ -48,7 +48,7 @@ public class AnswerScreen extends AppCompatActivity {
         }
 
         if (App.question.isAlreadyAnswered() && !(App.isCheated())) {
-            mCannotScore.setText("You cannot score a point for this question as you have seen the answer before!");
+            mCannotScore.setText("You cannot score a point for this question!");
         }
 
         if (App.isEndOfQuiz()) {

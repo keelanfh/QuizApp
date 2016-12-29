@@ -81,6 +81,7 @@ public class QuestionScreen extends FragmentActivity {
             Intent intent = new Intent(context, ScoreScreen.class);
             startActivity(intent);
         } else {
+            App.question.setAnswersGiven(2);
             App.moveToNextQuestion();
             refreshText();
             mRadioGroup.clearCheck();
