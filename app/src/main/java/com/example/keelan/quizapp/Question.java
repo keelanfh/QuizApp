@@ -36,11 +36,11 @@ class Question {
         this.answersGiven = answersGiven;
     }
 
-    public String getQuestion() {
+    String getQuestion() {
         return question;
     }
 
-    public String getAnswer() {
+    String getAnswer() {
         return answer;
     }
 
