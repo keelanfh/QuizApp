@@ -19,15 +19,15 @@ class Score {
         return score;
     }
 
-    public void setScore(int score) {
+    void setScore(int score) {
         this.score = score;
     }
 
-    public String getUsername() {
+    String getUsername() {
         return username;
     }
 
-    public void setUsername(String username) {
+    void setUsername(String username) {
         this.username = username;
     }
 
@@ -35,7 +35,7 @@ class Score {
         return quizNumber;
     }
 
-    public void setQuizNumber(int quizNumber) {
+    void setQuizNumber(int quizNumber) {
         this.quizNumber = quizNumber;
     }
 

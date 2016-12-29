@@ -13,7 +13,7 @@ import android.widget.Button;
 
 public class AllQuestionScreen extends AppCompatActivity {
 
-    final Context context = this;
+    private final Context context = this;
 
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -93,7 +93,7 @@ public class AllQuestionScreen extends AppCompatActivity {
     }
 
 
-    public void goToQuestion(int q) {
+    private void goToQuestion(int q) {
         App.setQuestionNumber(q - 1);
         Intent intent = new Intent(context, QuestionScreen.class);
         startActivity(intent);

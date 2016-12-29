@@ -14,7 +14,7 @@ import android.widget.TextView;
 
 public class AnswerScreen extends AppCompatActivity {
 
-    final Context context = this;
+    private final Context context = this;
     private TextView mResultMessage;
     private TextView mAnswerMessage;
     private TextView mHandToPlayer;

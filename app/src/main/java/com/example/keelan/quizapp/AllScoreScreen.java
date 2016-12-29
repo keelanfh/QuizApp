@@ -13,7 +13,7 @@ import android.widget.TextView;
 
 public class AllScoreScreen extends AppCompatActivity {
 
-    final Context context = this;
+    private final Context context = this;
     private TextView mUsernames;
     private TextView mQuizNumbers;
     private TextView mScores;

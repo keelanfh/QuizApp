@@ -7,12 +7,10 @@ package com.example.keelan.quizapp;
 
 class Question {
 
-    private String question;
-    private String answer;
-    private String[] incorrectAnswers;
+    private final String question;
+    private final String answer;
+    private final String[] incorrectAnswers;
     private int answersGiven = 0;
-    private int answersSkipped = 0;
-    private boolean skipped = false;
 
     Question() {
         question = "question";
@@ -34,27 +32,19 @@ class Question {
         return answersGiven > 1;
     }
 
-    boolean isAlreadySkipped() {
-        return answersSkipped > 1;
-    }
-
     void setAnswersGiven(int answersGiven) {
         this.answersGiven = answersGiven;
     }
 
-    void setAnswersSkipped(int answersSkipped) {
-        this.answersSkipped = answersSkipped;
-    }
-
-    public String getQuestion() {
+    String getQuestion() {
         return question;
     }
 
-    public String getAnswer() {
+    String getAnswer() {
         return answer;
     }
 
-    public String[] getIncorrectAnswers() {
+    String[] getIncorrectAnswers() {
         return incorrectAnswers;
     }
 
@@ -78,7 +68,7 @@ class Question {
         return allAnswers;
     }
 
-    public String[] answers() {
+    String[] answers() {
         String[] allAnswers = new String[incorrectAnswers.length + 1];
         for (int i = 0; i < incorrectAnswers.length; i++) {
             allAnswers[i] = incorrectAnswers[i];
@@ -95,13 +85,5 @@ class Question {
 
     String answerParagraph() {
         return "The right answer is " + this.answer;
-    }
-
-    static void setSkipped (boolean skipped) {
-        App.question.skipped = skipped;
-    }
-
-    boolean isSkipped() {
-        return App.question.skipped;
     }
 }
