@@ -7,7 +7,7 @@ import java.util.ArrayList;
  */
 
 class App {
-    static ArrayList<Score> scoreList = new ArrayList<>();
+    static final ArrayList<Score> scoreList = new ArrayList<>();
     static User currentUser;
     static User nextUser;
     static String player1Name;

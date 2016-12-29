@@ -13,7 +13,7 @@ import android.widget.Button;
 
 public class MultiplayerAllQuestionScreen extends AppCompatActivity {
 
-    final Context context = this;
+    private final Context context = this;
 
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -163,7 +163,7 @@ public class MultiplayerAllQuestionScreen extends AppCompatActivity {
         }
     }
 
-    public void goToQuestion(int q) {
+    private void goToQuestion(int q) {
         App.setQuestionNumber(q - 1);
         if (App.isOdd(q - 1)) {
             // If it's an odd question, should be player 2's name.

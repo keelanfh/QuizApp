@@ -16,7 +16,7 @@ import java.util.Comparator;
 
 public class ScoreScreen extends AppCompatActivity {
 
-    final Context context = this;
+    private final Context context = this;
     private TextView mScoreMessage0;
     private TextView mScoreMessage1;
     private TextView mScoreMessage2;

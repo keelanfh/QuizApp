@@ -7,9 +7,9 @@ package com.example.keelan.quizapp;
 
 class Question {
 
-    private String question;
-    private String answer;
-    private String[] incorrectAnswers;
+    private final String question;
+    private final String answer;
+    private final String[] incorrectAnswers;
     private int answersGiven = 0;
 
     Question() {
@@ -44,7 +44,7 @@ class Question {
         return answer;
     }
 
-    public String[] getIncorrectAnswers() {
+    String[] getIncorrectAnswers() {
         return incorrectAnswers;
     }
 
@@ -68,7 +68,7 @@ class Question {
         return allAnswers;
     }
 
-    public String[] answers() {
+    String[] answers() {
         String[] allAnswers = new String[incorrectAnswers.length + 1];
         for (int i = 0; i < incorrectAnswers.length; i++) {
             allAnswers[i] = incorrectAnswers[i];

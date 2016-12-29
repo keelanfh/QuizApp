@@ -17,7 +17,7 @@ import android.widget.TextView;
 
 public class QuestionScreen extends FragmentActivity {
 
-    final Context context = this;
+    private final Context context = this;
     private RadioGroup mRadioGroup;
     private TextView mQuestion;
     private RadioButton mAnswer1;
@@ -87,7 +87,7 @@ public class QuestionScreen extends FragmentActivity {
         }
     }
 
-    public void refreshText() {
+    private void refreshText() {
 
         String[] randomAnswers = App.question.randomAnswers();
         mQuestion.setText(App.question.getQuestion());
