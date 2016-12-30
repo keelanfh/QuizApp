@@ -48,7 +48,6 @@ public class QuestionScreen extends FragmentActivity {
     public void submit(View v) {
         int radioButtonID = mRadioGroup.getCheckedRadioButtonId();
         if (!(radioButtonID == -1)) {
-            Log.d("TAG", Integer.toString(radioButtonID));
             App.setCheated(false);
 
             View radioButton = mRadioGroup.findViewById(radioButtonID);
