@@ -7,9 +7,6 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.TextView;
 
-import java.util.Collections;
-import java.util.Comparator;
-
 /**
  * Created by keelan on 8/12/16.
  */
@@ -69,14 +66,6 @@ public class ScoreScreen extends AppCompatActivity {
 
     public void seeAllScores(View v) {
         App.addScoreToList();
-        Collections.sort(App.scoreList, new Comparator<Score>() {
-            @Override
-            public int compare(Score score1, Score score2) {
-
-                return Integer.valueOf(score1.getScore()).compareTo(score2.getScore());
-            }
-        });
-        Collections.reverse(App.scoreList);
         Intent intent = new Intent(context, AllScoreScreen.class);
         startActivity(intent);
 

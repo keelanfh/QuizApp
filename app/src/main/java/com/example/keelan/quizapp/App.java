@@ -1,6 +1,8 @@
 package com.example.keelan.quizapp;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 
 /**
  * Created by keelan on 30/11/16.
@@ -169,6 +171,13 @@ class App {
         if (multiplayer) {
             scoreList.add(new Score(nextUser.getScore(), nextUser.getUsername(), currentQuizNumber));
         }
+        Collections.sort(App.scoreList, new Comparator<Score>() {
+            @Override
+            public int compare(Score score1, Score score2) {
+
+                return Integer.valueOf(score2.getScore()).compareTo(score1.getScore());
+            }
+        });
     }
 
     static boolean isOdd(int n) {
