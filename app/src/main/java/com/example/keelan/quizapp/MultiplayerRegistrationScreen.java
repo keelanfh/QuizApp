@@ -31,7 +31,6 @@ public class MultiplayerRegistrationScreen extends AppCompatActivity {
         mSubmitButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                App.startQuiz(true);
                 String userInput1 = mUsernameBox1.getText().toString();
                 String userInput2 = mUsernameBox2.getText().toString();
 
@@ -47,6 +46,7 @@ public class MultiplayerRegistrationScreen extends AppCompatActivity {
                             "Please enter 2 different usernames.",
                             Toast.LENGTH_SHORT).show();
                 } else {
+                    App.startQuiz(true);
                     App.currentUser.setUsername(userInput1);
                     App.nextUser.setUsername(userInput2);
                     App.player1Name = userInput1;

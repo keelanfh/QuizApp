@@ -25,7 +25,7 @@ public class RegistrationScreen extends AppCompatActivity {
         mSubmitButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                App.startQuiz(false);
+
                 String userInput = mUsernameBox.getText().toString();
 
                 // Don't let the user set a username of less than 3 characters.
@@ -34,6 +34,7 @@ public class RegistrationScreen extends AppCompatActivity {
                             "Please enter a username 3 characters or longer.",
                             Toast.LENGTH_SHORT).show();
                 } else {
+                    App.startQuiz(false);
                     App.currentUser.setUsername(userInput);
                     Intent intent = new Intent(context, StartScreen.class);
                     startActivity(intent);
