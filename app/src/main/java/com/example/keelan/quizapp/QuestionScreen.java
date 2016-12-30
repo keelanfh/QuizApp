@@ -6,10 +6,12 @@ import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
+import android.util.Log;
 import android.view.View;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.TextView;
+import android.widget.Toast;
 
 /**
  * Created by keelan on 1/12/16.
@@ -46,6 +48,7 @@ public class QuestionScreen extends FragmentActivity {
     public void submit(View v) {
         int radioButtonID = mRadioGroup.getCheckedRadioButtonId();
         if (!(radioButtonID == -1)) {
+            Log.d("TAG", Integer.toString(radioButtonID));
             App.setCheated(false);
 
             View radioButton = mRadioGroup.findViewById(radioButtonID);
@@ -63,6 +66,10 @@ public class QuestionScreen extends FragmentActivity {
             }
             Intent intent = new Intent(context, AnswerScreen.class);
             startActivity(intent);
+        } else {
+            Toast.makeText(QuestionScreen.this,
+                    "Please select an answer.",
+                    Toast.LENGTH_SHORT).show();
         }
 
     }

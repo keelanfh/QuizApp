@@ -28,6 +28,12 @@ class Question {
 
     }
 
+    Question(Question anotherQuestion) {
+        question = anotherQuestion.question;
+        answer = anotherQuestion.answer;
+        incorrectAnswers = anotherQuestion.incorrectAnswers;
+    }
+
     boolean isAlreadyAnswered() {
         return answersGiven > 1;
     }

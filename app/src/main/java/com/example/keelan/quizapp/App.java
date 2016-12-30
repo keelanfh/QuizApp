@@ -100,7 +100,7 @@ class App {
             multiPlayerQuestionList[i] = singlePlayerQuestionList[i];
         }
         for (int i = 15; i < 30; i++) {
-            multiPlayerQuestionList[i] = singlePlayerQuestionList[i - 15];
+            multiPlayerQuestionList[i] = new Question(singlePlayerQuestionList[i - 15]);
         }
         return multiPlayerQuestionList;
     }
