@@ -58,7 +58,6 @@ public class QuestionScreen extends FragmentActivity {
 
             if (tf) {
                 App.incrementScore();
-                refreshText();
             } else {
                 App.setLastAnswerCorrect(false);
 
